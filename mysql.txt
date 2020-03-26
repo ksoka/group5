@@ -1,0 +1,40 @@
+CREATE database TPKing; 
+use TPKing
+
+CREATE TABLE user_accounts(
+    id_user INT PRIMARY KEY AUTO_INCREMENT,
+    password VARCHAR(255) NOT NULL,
+    firstname CHAR(15) NOT NULL,
+    lastname CHAR(15) NOT NULL,
+    city VARCHAR(45),
+    zip VARCHAR(45),
+    address VARCHAR(45) NOT NULL,
+    phone INT,
+    admin TINYINT
+    )ENGINE=InnoDB;
+
+CREATE TABLE products(
+    id_products INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    quantity INT ,
+    price DOUBLE NOT NULL
+    )ENGINE=InnoDB;
+
+CREATE TABLE purchased(
+    time VARCHAR(255) PRIMARY KEY,
+    id_user INT,
+    id_products INT,
+    amount INT NOT NULL,
+    price DOUBLE NOT NULL,
+    FOREIGN KEY (id_user) REFERENCES user_accounts(id_user),
+    FOREIGN KEY (id_products) REFERENCES products(id_products)
+    );
+
+
+INSERT INTO user_accounts(password,firstname,lastname,address,admin) VALUES('test','F','P','somewhere','1');
+
+
+GRANT ALL on TPKing.* to 'admin'@'localhost' IDENTIFIED BY 'admin';
+
+
+
