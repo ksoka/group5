@@ -2,6 +2,6 @@
 
 <?php 
     foreach ($BrowseItems as $row) {
-       echo .$row['id_products'].$row['name'].$row['quantity'].$row['price'];
+       echo $row['id_products'].$row['name'].$row['quantity'].$row['price'];
     } 
 ?>

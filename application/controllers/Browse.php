@@ -6,11 +6,11 @@ class Browse extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('browse_model');
+        $this->load->model('Browse_model');
     }
 
     public function browse(){
-        $data['Browseitems']=$this->Browse_model->get_products();
-        $this->load->view('browse/show_itmes',$data);
+        $data['BrowseItems']=$this->Browse_model->get_products();
+        $this->load->view('browse/show_items',$data);
       }
 }
