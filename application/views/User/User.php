@@ -18,6 +18,7 @@
                 echo '</tr>';
             }
         ?>
+        
     </tbody>
 </table>
 <button class="button">Edit information</button>

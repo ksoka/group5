@@ -11,15 +11,16 @@ class User extends CI_Controller
 
 	public function index()
 	{
-        $this->load->view('user/user');
+        $data['page']='user/user';
+        $this->load->view('menu/content', $data);
     }
-    
+
     public function show_user()
     {
         $data['user']=$this->User_model->getUserInfo();
         //print_r($data);
         $data['page']='user/user';
-        $this->load->view('user/user', $data);
+        $this->load->view('menu/content', $data);
     }
     public function edit_user()
     {
