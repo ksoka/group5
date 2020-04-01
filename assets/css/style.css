@@ -38,11 +38,17 @@ body{
     padding: 4px;
 }
 
+.adduser_form{
+    padding: 4px;
+    margin: auto;
+}
+
 .logout_form input[type=submit]{
     border-radius: 5px;
     border-color: darkgrey;
     border-style: solid;
     background-color: white;
+    margin-top: 0px;
     padding: 3px;
     text-align: center;
 }
@@ -88,7 +94,7 @@ body{
 }
 
  /* The Modal (background) */
- .modal {
+ .modal2 {
     position: fixed;
     z-index: 1; 
     left: 0;
@@ -100,11 +106,11 @@ body{
     background-color: rgba(0,0,0,0.4);
   }
 
-  .modal_hide{
+  .modal_hide2{
     display: none;
   }
   
-  .modal-content {
+  .modal-content2 {
     background-color: #fefefe;
     margin: 15% auto; 
     padding: 20px;
