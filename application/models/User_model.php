@@ -19,7 +19,14 @@ class User_model extends CI_Model{
   public function getPassword($given_username){
     $this->db->select('password');
     $this->db->from('user_accounts');
-    $this->db->where('lastname',$given_username);
+    $this->db->where('username',$given_username);
     return $this->db->get()->row('password');
+  }
+
+  public function getUsername($username){
+    $this->db->select('username');
+    $this->db->from('user_accounts');
+    $this->db->where('username',$username);
+    return $this->db->get()->row('username');
   }
 }
