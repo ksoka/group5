@@ -11,7 +11,7 @@ class Login extends CI_Controller{
     // Loading the login page with footer and header
     function index()
     {
-      $data['page']='login/login';
+      $data['page']='Login/login';
       $this->load->view('menu/content',$data);
     }
     
@@ -27,7 +27,7 @@ class Login extends CI_Controller{
       if (password_verify($given_password, $db_password)){
           $_SESSION['logged_in']=true;
           $_SESSION['username']=$given_username;
-          redirect('login');
+          redirect('Browse/browse');
       }
 
       // Password did not match
@@ -35,7 +35,7 @@ class Login extends CI_Controller{
           $_SESSION['logged_in']=false;
           $data['show_feedback']=TRUE;
           $data['message']='Login unsuccessful!';
-          $data['page']='login/login';
+          $data['page']='Login/login';
           $this->load->view('menu/content',$data);
           //redirect('login/index');
       }
@@ -46,7 +46,7 @@ class Login extends CI_Controller{
       $_SESSION['logged_in']=false;
       $data['show_feedback']=TRUE;
       $data['message']='You successfully logged out';
-      $data['page']='login/login';
+      $data['page']='Login/login';
       $this->load->view('menu/content',$data);
     }
 
@@ -90,12 +90,12 @@ class Login extends CI_Controller{
       if($testname == $username){
         $data['show_feedback']=TRUE;
         $data['message']='Username already taken';
-        $data['page']='login/login';
+        $data['page']='Login/login';
         $this->load->view('menu/content',$data);
       }
       else{
         $test=$this->User_model->addUser($insert_data);
-        redirect('login');
+        redirect('Login');
       }
 
       //echo $test;
