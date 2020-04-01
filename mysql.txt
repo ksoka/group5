@@ -9,8 +9,9 @@ CREATE TABLE user_accounts(
     city VARCHAR(45),
     zip VARCHAR(45),
     address VARCHAR(45) NOT NULL,
-    phone INT,
-    admin TINYINT
+    phone VARCHAR(50),
+    admin TINYINT,
+    username VARCHAR(255)
     )ENGINE=InnoDB;
 
 CREATE TABLE products(

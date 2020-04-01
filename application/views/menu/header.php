@@ -20,7 +20,7 @@
 </head>
 <body>
   
-<div class="test">
+<div class="header">
 <h1 class="TPKing">TPKing</h1>
 
 
@@ -42,3 +42,37 @@ else{
 </div>
 
 
+  <!-- The Modal is always present but only shown when needed-->
+  <div id="Feedback" class="modal <?php if(isset($show_feedback)){} else{echo 'modal_hide';} ?>">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+          <span class="close">&times;</span>
+          <p> <?php if(isset($show_feedback)){echo $message;} ?></p>
+      </div>
+
+  </div>
+
+  <script>
+
+    // Get the modal
+    var modal = document.getElementById("Feedback");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on the (x), close the modal
+    span.onclick = function() {
+      modal.classList.toggle("modal_hide");
+      <?php $show_feedback = FALSE; ?>
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.classList.toggle("modal_hide");
+        <?php $show_feedback = FALSE; ?>
+      }
+    } 
+
+  </script>

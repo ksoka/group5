@@ -1,7 +1,7 @@
 <!--The Login form -->
 <div class="login_form">
   <form  action="<?php echo site_url('login/login'); ?>" method="post" autocomplete="off">
-    <label for="username">Lastname</label> <br>
+    <label for="username">Username</label> <br>
     <input class="input_field" type="text" id="username" name="username" value=""> <br>
 
     <label for="password">Password</label> <br>
@@ -19,8 +19,11 @@
 
 <!--The Add User form -->
 <form class="adduser_form" action="<?php echo site_url('login/add_user'); ?>" method="post" autocomplete="off">
-  <label for="username">lastname*</label> <br>
+  <label for="username">username* (must be unique)</label> <br>
   <input type="text" id="username" name="username" value=""> <br>
+
+  <label for="lastname">lastname*</label> <br>
+  <input type="text" id="lastname" name="lastname" value=""> <br>
 
   <label for="fname">firstname*</label> <br>
   <input type="text" id="fname" name="fname" value=""> <br>
