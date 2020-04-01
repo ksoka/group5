@@ -5,7 +5,7 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Id</th><th>Firstname</th> <th>Lastname</th> <th>City</th> <th>Zip</th> <th>Address</th> <th>Phone</th>
+            <th>Id</th><th>Username</th><th>Firstname</th> <th>Lastname</th> <th>City</th> <th>Zip</th> <th>Address</th> <th>Phone</th> 
         </tr>
     </thead>
     <tbody>
@@ -13,7 +13,7 @@
             foreach ($user as $row)
             {
                 echo '<tr>';
-                echo '<td>'.$row['id_user'].'<td>'.$row['firstname'].'</td><td>'.$row['lastname'].'</td><td>'.$row['city'].'</td>'
+                echo '<td>'.$row['id_user'].'</td><td>'.$row['username'].'</td><td>'.$row['firstname'].'</td><td>'.$row['lastname'].'</td><td>'.$row['city'].'</td>'
                     .'<td>'.$row['zip'].'</td><td>'.$row['address'].'</td><td>'.$row['phone'].'</td>';
                 echo '<td> <button id ="editMyInfo" class="btn btn-primary myBtn" data-toggle="modal" data-target="#editModal" data-id_user="'.$row['id_user'].'" data-firstname="'.$row['firstname'].'"
                 data-lastname="'.$row['lastname'].'"data-city="'.$row['city'].'"data-zip="'.$row['zip'].'"data-address="'.$row['address'].'"data-phone="'.$row['phone'].'">Edit information</button></td>';
@@ -63,6 +63,7 @@
                 <form class="" action="<?php echo site_url('user/edit_user'); ?>" method="post">
                     <div class="form-group">
                         <input type="hidden" id="edit_id_user" name="id_user" value="">
+                        <input type="hidden" id="edit_username" name="username" value="">
                         <label for="edit_firstname">Firstname</label><br>
                         <input type="text" id="edit_firstname" name="firstname" value=""> <br>
                         <label for="edit_lastname">Lastname</label><br>
@@ -90,6 +91,7 @@
     $(document).on( "click", '#editMyInfo',function(e) {
     console.log("Update modal open");
     var id_user = $(this).data('id_user');
+    var username = $(this).data('username');
     var firstname = $(this).data('firstname');
     var lastname = $(this).data('lastname');
     var city = $(this).data('city');
@@ -99,6 +101,7 @@
     console.log('id_user = '+id_user);
 
     $("#edit_id_user").val(id_user);
+    $("#edit_username").val(username);
     $("#edit_firstname").val(firstname);
     $("#edit_lastname").val(lastname);
     $("#edit_city").val(city);
