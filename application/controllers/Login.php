@@ -11,7 +11,7 @@ class Login extends CI_Controller{
     // Loading the login page with footer and header
     function index()
     {
-      $data['page']='login/login';
+      $data['page']='Login/login';
       $this->load->view('menu/content',$data);
     }
     
@@ -27,13 +27,16 @@ class Login extends CI_Controller{
       if (password_verify($given_password, $db_password)){
           $_SESSION['logged_in']=true;
           $_SESSION['username']=$given_username;
-          redirect('login');
+          redirect('Browse/browse');
       }
 
       // Password did not match
       else {
           $_SESSION['logged_in']=false;
-          echo 'You did not log in!';
+          $data['show_feedback']=TRUE;
+          $data['message']='Login unsuccessful!';
+          $data['page']='Login/login';
+          $this->load->view('menu/content',$data);
           //redirect('login/index');
       }
     }
@@ -41,7 +44,10 @@ class Login extends CI_Controller{
     // Setting the session token "logged in" to false -> logged out
     public function logout(){
       $_SESSION['logged_in']=false;
-      redirect('login');
+      $data['show_feedback']=TRUE;
+      $data['message']='You successfully logged out';
+      $data['page']='Login/login';
+      $this->load->view('menu/content',$data);
     }
 
     // Adding a user by sending the given information to the database
@@ -49,6 +55,7 @@ class Login extends CI_Controller{
     // Will be on the admin panel 
     function add_user(){
       $username=$this->input->post('username');
+      $lastname=$this->input->post('lastname');
       $plain_password=$this->input->post('password');
       $hashed_password=password_hash($plain_password,PASSWORD_DEFAULT);
       $firstname=$this->input->post('fname');
@@ -69,17 +76,29 @@ class Login extends CI_Controller{
       $insert_data=array(
         'password'=>$hashed_password,
         'firstname'=>$firstname,
-        'lastname'=>$username,
+        'lastname'=>$lastname,
         'city'=>$city,
         'zip'=>$zip,
         'address'=>$address,
         'phone'=>$phone,
-        'admin'=>$admin
+        'admin'=>$admin,
+        'username'=>$username
       );
 
-      $test=$this->User_model->addUser($insert_data);
+      $testname=$this->User_model->getUsername($username);
+
+      if($testname == $username){
+        $data['show_feedback']=TRUE;
+        $data['message']='Username already taken';
+        $data['page']='Login/login';
+        $this->load->view('menu/content',$data);
+      }
+      else{
+        $test=$this->User_model->addUser($insert_data);
+        redirect('Login');
+      }
+
       //echo $test;
       //print_r($insert_data);
-      redirect('login');
     }
 }

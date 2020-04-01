@@ -9,8 +9,9 @@ CREATE TABLE user_accounts(
     city VARCHAR(45),
     zip VARCHAR(45),
     address VARCHAR(45) NOT NULL,
-    phone INT,
-    admin TINYINT
+    phone VARCHAR(50),
+    admin TINYINT,
+    username VARCHAR(255)
     )ENGINE=InnoDB;
 
 CREATE TABLE products(
@@ -35,6 +36,12 @@ INSERT INTO user_accounts(password,firstname,lastname,address,admin) VALUES('tes
 
 
 GRANT ALL on TPKing.* to 'admin'@'localhost' IDENTIFIED BY 'admin';
+
+ALTER TABLE user_accounts
+ADD COLUMN username varchar(255);
+
+ALTER TABLE user_accounts
+Modify COLUMN phone varchar(50);
 
 
 

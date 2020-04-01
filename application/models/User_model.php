@@ -19,7 +19,48 @@ class User_model extends CI_Model{
   public function getPassword($given_username){
     $this->db->select('password');
     $this->db->from('user_accounts');
-    $this->db->where('lastname',$given_username);
+    $this->db->where('username',$given_username);
     return $this->db->get()->row('password');
   }
+
+  //Getting all the information of the logged in user
+  public function getUserInfo()
+  {
+    $id_user = $_SESSION['username']; //This indicates to the user who is currently logged in
+    $this->db->select('*');
+    $this->db->from('user_accounts');
+    $this->db->where('lastname',$id_user);
+    return $this->db->get()->result_array();
+  }
+  public function UpdateUser($id_user, $update_data)
+  {
+    $this->db->where('id_user',$id_user);
+    $this->db->update('user_accounts',$update_data);
+    return $this->db->affected_rows();
+  }
+
+  //Gets all the lines from purchased products that are made by the logged in user
+  public function getUserProducts()
+  {
+    // Sub Query  
+    $username = $_SESSION['username']; //This indicates to the user who is currently logged in  
+    $this->db->select('id_user');
+    $this->db->from('user_accounts');
+    $this->db->where('lastname',$username);
+    $sub_query = $this->db->get_compiled_select();
+    // // Main Query
+    $this->db->select('*');
+    $this->db->from('purchased');
+    $this->db->where("id_user IN ($sub_query)");
+    //$query = $this->db->get()->result_array();
+    return $this->db->get()->result_array();
+  }
+
+  public function getUsername($username){
+    $this->db->select('username');
+    $this->db->from('user_accounts');
+    $this->db->where('username',$username);
+    return $this->db->get()->row('username');
+  }
+
 }
