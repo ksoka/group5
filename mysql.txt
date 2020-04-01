@@ -37,5 +37,11 @@ INSERT INTO user_accounts(password,firstname,lastname,address,admin) VALUES('tes
 
 GRANT ALL on TPKing.* to 'admin'@'localhost' IDENTIFIED BY 'admin';
 
+ALTER TABLE user_accounts
+ADD COLUMN username varchar(255);
+
+ALTER TABLE user_accounts
+Modify COLUMN phone varchar(50);
+
 
 
