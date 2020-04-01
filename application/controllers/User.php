@@ -37,19 +37,25 @@ class User extends CI_Controller
         $test=$this->User_model->UpdateUser($id_user, $update_data);
         if ($test==0)
         {
-            $data['message'] = 'Something went wrong';
-            $data['return_url']='show_user' ;
-            print_r($data);
-            //$data['page'] = 'user/user'; //'feedback/message_box';
-            //$this->load->view('menu/content', $data);
+            $data['show_feedback']=TRUE;
+            $data['message']='Something went wrong';
+            $data['page']='user/user';
+            $data['page']='user/user';
+            $data['user']=$this->User_model->getUserInfo();
+            $data['user_products']=$this->User_model->getUserProducts();
+            $this->load->view('menu/content',$data);
+
         }
         else
         {
-            $data['message'] = 'Your information updated succesfully';
-            $data['return_url']='show_user' ;
-            print_r($data);
-            //$data['page']='feedback/message_box';
-            //$this->load->view('menu/content', $data);
+            $data['show_feedback']=TRUE;
+            $data['message']='Your information updated succesfully';
+            $data['page']='user/user';
+            $data['user']=$this->User_model->getUserInfo();
+            $data['user_products']=$this->User_model->getUserProducts();
+            $data['page']='user/user';
+            $this->load->view('menu/content',$data);
+       
         }
     }
 

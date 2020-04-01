@@ -32,7 +32,7 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Time</th> <th>Id_products</th> <th>Amount</th> <th>Total price</th>
+            <th>Time</th> <th>Name</th> <th>Id_products</th> <th>Amount</th> <th>Total price</th>
         </tr>
     </thead>
     <tbody>
@@ -40,7 +40,8 @@
             foreach ($user_products as $row)
             {
                 echo '<tr>';
-                echo '<td>'.$row['time'].'</td><td>'.$row['id_products']
+                echo '<td>'.$row['time'].'</td><td>'.$row['name']
+                    .'</td><td>'.$row['id_products']
                     .'</td><td>'.$row['amount'].'</td>'.'<td>'.$row['price'];
                 echo '</tr>';
             }
