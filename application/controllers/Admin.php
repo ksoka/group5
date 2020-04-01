@@ -6,13 +6,18 @@ class Admin extends CI_Controller{
     public function __construct()
     {
       parent::__construct();
+      $this->load->model('User_model');
+      $this->load->model('Admin_model');
+      $data['allUsers']=$this->Admin_model->getAllUsersInfo();
     }
     
         // Loading the login page with footer and header
         function index()
         {
           $data['page']='Admin/admin';
+          $data['allUsers']=$this->Admin_model->getAllUsersInfo();
           $this->load->view('menu/content',$data);
+          
         }
 
 
@@ -65,4 +70,50 @@ class Admin extends CI_Controller{
         }
     }
 
-}
+    //for admin to edit the users
+    public function edit_users()
+    {
+      $id_user=$this->input->post('id_user');
+      $username=$this->input->post('username');
+      $update_data=array(
+          'username'=>$this->input->post('username'),          
+          'firstname'=>$this->input->post('firstname'),
+          'lastname'=>$this->input->post('lastname'),
+          'city'=>$this->input->post('city'),
+          'zip'=>$this->input->post('zip'),
+          'address'=>$this->input->post('address'),
+          'phone'=>$this->input->post('phone')
+        );
+
+      $testname=$this->User_model->getUsername($username);
+      //testing if the username already exists. The username has to be unique
+      if($testname == $username)
+      {
+        $data['show_feedback']=TRUE;
+        $data['message']='Username already taken';
+        $data['page']='Admin/admin';
+        $data['allUsers']=$this->Admin_model->getAllUsersInfo();
+        $this->load->view('menu/content',$data);
+      }
+      else //testing if the users information got updated or not
+      {   
+        $test=$this->Admin_model->UpdateUsers($id_user, $update_data);
+        if($test==0)
+        {
+          $data['show_feedback']=TRUE;
+          $data['message']='Something went wrong. Please try again';
+          $data['page']='admin/admin';
+          $data['allUsers']=$this->Admin_model->getAllUsersInfo();
+          $this->load->view('menu/content',$data);
+        }
+        else
+        {
+          $data['show_feedback']=TRUE;
+          $data['message']='Information updated succesfully';
+          $data['page']='admin/admin';
+          $data['allUsers']=$this->Admin_model->getAllUsersInfo();
+          $this->load->view('menu/content',$data);
+        }
+      }
+    }
+}   
