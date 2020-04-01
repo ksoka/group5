@@ -82,6 +82,11 @@ body{
     color: rgb(53, 53, 53);
 }
 
+#image{
+    width: 350px;
+    border-radius: 25;
+}
+
  /* The Modal (background) */
  .modal {
     position: fixed;
@@ -121,3 +126,4 @@ body{
     text-decoration: none;
     cursor: pointer;
   } 
+
