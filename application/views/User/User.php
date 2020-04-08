@@ -1,55 +1,60 @@
-<h2> Hello and welcome to your page <?php echo $_SESSION['username'] ?></h2>
-<br>
-<h3> My information </h3>
-<!-- Table for the users information-->
-<table class="table">
-    <thead>
-        <tr>
-            <th>Id</th><th>Username</th><th>Firstname</th> <th>Lastname</th> <th>City</th> <th>Zip</th> <th>Address</th> <th>Phone</th> 
-        </tr>
-    </thead>
-    <tbody>
-        <?php
-            foreach ($user as $row)
-            {
-                echo '<tr>';
-                echo '<td>'.$row['id_user'].'</td><td>'.$row['username'].'</td><td>'.$row['firstname'].'</td><td>'.$row['lastname'].'</td><td>'.$row['city'].'</td>'
-                    .'<td>'.$row['zip'].'</td><td>'.$row['address'].'</td><td>'.$row['phone'].'</td>';
-                echo '<td> <button id ="editMyInfo" class="btn btn-primary myBtn" data-toggle="modal" data-target="#editModal" data-id_user="'.$row['id_user'].'" data-firstname="'.$row['firstname'].'"
-                data-lastname="'.$row['lastname'].'"data-city="'.$row['city'].'"data-zip="'.$row['zip'].'"data-address="'.$row['address'].'"data-phone="'.$row['phone'].'">Edit information</button></td>';
-                echo '</tr>';
-            }
-        ?>
-        
-    </tbody>
-</table>
+<div class="container">
+    <h2> Hello and welcome to your page <?php echo $_SESSION['username'] ?></h2>
+    <br>
+</div>
+<div class="container">
+    <h3> My information </h3>
+    <!-- Table for the users information-->
+    <table class="table table-borderless">
+        <thead>
+            <tr>
+                <th>Id</th><th>Username</th><th>Firstname</th> <th>Lastname</th> <th>City</th> <th>Zip</th> <th>Address</th> <th>Phone</th> 
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                foreach ($user as $row)
+                {
+                    echo '<tr>';
+                    echo '<td>'.$row['id_user'].'</td><td>'.$row['username'].'</td><td>'.$row['firstname'].'</td><td>'.$row['lastname'].'</td><td>'.$row['city'].'</td>'
+                        .'<td>'.$row['zip'].'</td><td>'.$row['address'].'</td><td>'.$row['phone'].'</td>';
+                    echo '<td> <button id ="editMyInfo" class="btn btn-primary myBtn" data-toggle="modal" data-target="#editModal" data-id_user="'.$row['id_user'].'" data-firstname="'.$row['firstname'].'"
+                    data-lastname="'.$row['lastname'].'"data-city="'.$row['city'].'"data-zip="'.$row['zip'].'"data-address="'.$row['address'].'"data-phone="'.$row['phone'].'">Edit information</button></td>';
+                    echo '</tr>';
+                }
+            ?>
+            
+        </tbody>
+    </table>
+</div>
 
-<br>
-<h3> Previously bought items </h3> 
 
-<!-- table for all the purchased items by the logged in user -->
+<div class="container">
+    <h3> Previously bought items </h3> 
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Time</th> <th>Name</th> <th>Id_products</th> <th>Amount</th> <th>Total price</th>
-        </tr>
-    </thead>
-    <tbody>
-         <?php
-            foreach ($user_products as $row)
-            {
-                echo '<tr>';
-                echo '<td>'.$row['time'].'</td><td>'.$row['name']
-                    .'</td><td>'.$row['id_products']
-                    .'</td><td>'.$row['amount'].'</td>'.'<td>'.$row['price'];
-                echo '</tr>';
-            }
-        ?>
-   
-    </tbody>
-</table>
+    <!-- table for all the purchased items by the logged in user -->
 
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Time</th> <th>Name</th> <th>Id_products</th> <th>Amount</th> <th>Total price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                foreach ($user_products as $row)
+                {
+                    echo '<tr>';
+                    echo '<td>'.$row['time'].'</td><td>'.$row['name']
+                        .'</td><td>'.$row['id_products']
+                        .'</td><td>'.$row['amount'].'</td>'.'<td>'.$row['price'];
+                    echo '</tr>';
+                }
+            ?>
+    
+        </tbody>
+    </table>
+</div>
 <!-- EditModal -->
 <div class="modal fade" id="editModal" role="dialog">
     <div class="modal-dialog" role="document">

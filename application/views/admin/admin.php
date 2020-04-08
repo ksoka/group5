@@ -33,7 +33,7 @@
   <input type="submit" name="" value="Adduser">
 </form>
 
-<table class="table">
+<table class="container table table-bordered table-hover table-sm">
     <thead>
         <tr>
             <th>User Id</th> <th>Username</th><th>Firstname</th> <th>Lastname</th> <th>City</th> <th>Zip</th> <th>Address</th> <th>Phone</th> 
