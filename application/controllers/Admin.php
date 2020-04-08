@@ -116,4 +116,25 @@ class Admin extends CI_Controller{
         }
       }
     }
+
+    public function delete_user()
+    {
+      $id_user=$this->input->post('id_user');
+      $test=$this->Admin_model->deleteUser($id_user);
+      if($test==0){
+        $data['show_feedback']=TRUE;
+        $data['message']='Something went wrong. Please try again';
+        $data['page']='admin/admin';
+        $data['allUsers']=$this->Admin_model->getAllUsersInfo();
+        $this->load->view('menu/content',$data);
+      }
+      else
+      {
+        $data['show_feedback']=TRUE;
+        $data['message']='User deleted succesfully';
+        $data['page']='admin/admin';
+        $data['allUsers']=$this->Admin_model->getAllUsersInfo();
+        $this->load->view('menu/content',$data);
+      }
+    }
 }   
