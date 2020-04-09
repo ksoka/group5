@@ -11,6 +11,8 @@ class Browse extends CI_Controller {
 
     public function browse(){
         $data['BrowseItems']=$this->Browse_model->get_products();
+        $data['image']=$this->Browse_model->get_image(1);
         $this->load->view('browse/show_items',$data);
       }
+    
 }

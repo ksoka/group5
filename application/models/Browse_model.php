@@ -15,7 +15,12 @@ class Browse_model extends CI_Model {
         $this->db->from('products');
         return $this->db->get()->result_array();
     }
-    
+    public function get_image($id){
+        $this->db->select('image');
+        $this->db->from('products');
+        $this->db->where('id_products',$id);
+        return $this->db->get()->row('image');
+    }
 
 }
 
