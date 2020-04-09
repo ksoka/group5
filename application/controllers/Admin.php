@@ -86,8 +86,9 @@ class Admin extends CI_Controller{
         );
 
       $testname=$this->User_model->getUsername($username);
+      $currentUsername=$this->input->post('username');
       //testing if the username already exists. The username has to be unique
-      if($testname == $username)
+      if($testname != $currentUsername && $testname == $username)
       {
         $data['show_feedback']=TRUE;
         $data['message']='Username already taken';
