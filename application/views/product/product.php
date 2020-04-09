@@ -2,42 +2,31 @@
   <div class="row">
     <div class="col paddingTop title">
         <?php
-            foreach ($information as $row)
-            { 
-                echo $row['name'];
-            }
+            echo $information[0]['name'];
         ?>
     </div>
   </div>
   <div class="row">
     <div class="col">
         <?php
-            foreach ($information as $row)
-            { 
-                echo '<img class="paddingTop" src="'.base_url('assets/images/').$row['image'].'"</div>'  ;
-            }
+            echo '<img class="paddingTop" src="'.base_url('assets/images/').$information[0]['image'].'"</div>'  ;
         ?>
     </div>
     <div class="col">
         <div>
             <?php
-                foreach ($information as $row)
-                { 
-                    echo '<span class="title">'.$row['price'].' € </span> '.($row['price']/$row['quantity']).' €/a roll<br>';
-                    echo 'One package includes <span class="bolded">'.$row['quantity']. ' </span>roll(s)';
-                }
+                echo '<span class="title">'.$information[0]['price'].' € </span> '.($information[0]['price']/$information[0]['quantity']).' €/a roll<br>';
+                echo 'One package includes <span class="bolded">'.$information[0]['quantity']. ' </span>roll(s)';
             ?>
         </div>
         <div class="paddingTop" id="productInfoBox">
             <?php
-                foreach ($information as $row)
-                {
-                    echo $row['info'];
-                }
+                echo $information[0]['info'];
             ?>
         </div>
         <div class="paddingTop">
-            <form action="/action_page.php">
+            <form action=<?php echo site_url('cart'); ?> method="post"> 
+                <input type="hidden" id="item_id" name="item_id" value=<?php echo $information[0]['id_products']?>>
                 <label for="quantity">Quantity:</label>
                 <input style="width:50px;" type="number" value="1" id="quantity" name="quantity" min="1">
                 <input class="btn btn-primary" type="submit" value="Add to cart">
