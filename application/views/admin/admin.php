@@ -25,7 +25,7 @@
   <input type="text" id="phone" name="phone" value=""> <br>
 
   <label for="admin">admin</label> <br>
-  <input type="radio" id="admin" name="admin" value="1"> <br>
+  <input type="checkbox" id="admin" name="admin" value="1"> <br>
 
   <label for="password">password*</label> <br>
   <input type="text" id="password" name="password" value=""> <br>

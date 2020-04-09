@@ -22,6 +22,15 @@ class Browse_model extends CI_Model {
         return $this->db->get()->row('image');
     }
 
+    public function get_product_information($id)
+    {
+        $this->db->select('*');
+        $this->db->from('products');
+        $this->db->where('id_products',$id);
+        return $this->db->get()->result_array();
+
+    }
+
 }
 
 /* End of file ModelName.php */
