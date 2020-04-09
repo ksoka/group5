@@ -147,3 +147,25 @@ body{
     cursor: pointer;
   } 
 
+  .account_button {
+    color: blue;
+    padding: 0px;
+    border: none;
+    background-color: inherit;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .no_account{
+      text-align: center;
+  }
+
+  .no_account a{
+    color: blue;
+}
+
+.no_account a:hover{
+    color: blue;
+    text-decoration: none;
+}
