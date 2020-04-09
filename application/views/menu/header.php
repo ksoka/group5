@@ -38,15 +38,17 @@
 else{
   echo 'Welcome Guest';
 }
+
 ?></h5>
+<br>
 </div>
 
 
   <!-- The Modal is always present but only shown when needed-->
-  <div id="Feedback" class="modal <?php if(isset($show_feedback)){} else{echo 'modal_hide';} ?>">
+  <div id="Feedback" class="modal2 <?php if(isset($show_feedback)){} else{echo 'modal_hide2';} ?>">
 
       <!-- Modal content -->
-      <div class="modal-content">
+      <div class="modal-content2">
           <span class="close">&times;</span>
           <p> <?php if(isset($show_feedback)){echo $message;} ?></p>
       </div>
@@ -63,14 +65,14 @@ else{
 
     // When the user clicks on the (x), close the modal
     span.onclick = function() {
-      modal.classList.toggle("modal_hide");
+      modal.classList.toggle("modal_hide2");
       <?php $show_feedback = FALSE; ?>
     }
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
       if (event.target == modal) {
-        modal.classList.toggle("modal_hide");
+        modal.classList.toggle("modal_hide2");
         <?php $show_feedback = FALSE; ?>
       }
     } 

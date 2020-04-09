@@ -29,7 +29,7 @@ class User_model extends CI_Model{
     $id_user = $_SESSION['username']; //This indicates to the user who is currently logged in
     $this->db->select('*');
     $this->db->from('user_accounts');
-    $this->db->where('lastname',$id_user);
+    $this->db->where('username',$id_user);
     return $this->db->get()->result_array();
   }
   public function UpdateUser($id_user, $update_data)
@@ -46,7 +46,7 @@ class User_model extends CI_Model{
     $username = $_SESSION['username']; //This indicates to the user who is currently logged in  
     $this->db->select('id_user');
     $this->db->from('user_accounts');
-    $this->db->where('lastname',$username);
+    $this->db->where('username',$username);
     $sub_query = $this->db->get_compiled_select();
     // // Main Query
     $this->db->select('*');
