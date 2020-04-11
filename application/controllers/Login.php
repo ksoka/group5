@@ -24,9 +24,11 @@ class Login extends CI_Controller{
 
       // Checking if the password matches the existing one
       $db_password=$this->User_model->getPassword($given_username);
+      $db_admin=$this->User_model->getAdmin($given_username);
       if (password_verify($given_password, $db_password)){
           $_SESSION['logged_in']=true;
           $_SESSION['username']=$given_username;
+          $_SESSION['admin']=$db_admin;
           redirect('Browse/browse');
       }
 

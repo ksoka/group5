@@ -70,6 +70,8 @@
                     <div class="form-group">
                         <input type="hidden" id="edit_id_user" name="id_user" value="">
                         <input type="hidden" id="edit_username" name="username" value="">
+                        <label for="edit_password">Password</label><br>
+                        <input type="text" id="edit_password" name="password" value=""> <br>
                         <label for="edit_firstname">Firstname</label><br>
                         <input type="text" id="edit_firstname" name="firstname" value=""> <br>
                         <label for="edit_lastname">Lastname</label><br>
@@ -78,7 +80,7 @@
                         <input type="text" id="edit_city" name="city" value=""> <br>
                         <label for="edit_zip">Zip</label><br>
                         <input type="text" id="edit_zip" name="zip" value=""> <br>
-                        <label for="edit_address">Adderss</label><br>
+                        <label for="edit_address">Address</label><br>
                         <input type="text" id="edit_address" name="address" value=""> <br>
                         <label for="edit_phone">Phone Number</label><br>
                         <input type="text" id="edit_phone" name="phone" value=""> <br>
@@ -97,6 +99,7 @@
     $(document).on( "click", '#editMyInfo',function(e) {
     console.log("Update modal open");
     var id_user = $(this).data('id_user');
+    var password = $(this).data('password');
     var username = $(this).data('username');
     var firstname = $(this).data('firstname');
     var lastname = $(this).data('lastname');
@@ -106,7 +109,8 @@
     var phone = $(this).data('phone');
     console.log('id_user = '+id_user);
 
-    $("#edit_id_user").val(id_user);
+    $("#edit_id_user").val(id_user);    
+    $("#edit_password").val(password);
     $("#edit_username").val(username);
     $("#edit_firstname").val(firstname);
     $("#edit_lastname").val(lastname);
