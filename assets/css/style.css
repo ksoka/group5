@@ -98,8 +98,8 @@ body{
 }
 
 #content{
-    border: black 1px solid;
     display: flex;
+    border: black 1px solid;
     justify-content: space-between;
 }
 
