@@ -43,5 +43,11 @@ ADD COLUMN username varchar(255);
 ALTER TABLE user_accounts
 Modify COLUMN phone varchar(50);
 
+ALTER TABLE products
+ADD COLUMN image varchar(255);
+
+ALTER TABLE products
+ADD COLUMN info TEXT;
+
 
 
