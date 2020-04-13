@@ -15,7 +15,12 @@ class Admin_model extends CI_Model{
     $this->db->from('user_accounts');
     return $this->db->get()->result_array();
   }
-
+  public function getAllProducts()
+  {
+    $this->db->select('*');
+    $this->db->from('products');
+    return $this->db->get()->result_array();
+  }
   public function UpdateUsers($id_user, $update_data)
   {
     $this->db->where('id_user',$id_user);
@@ -28,4 +33,17 @@ class Admin_model extends CI_Model{
     $this->db->delete('user_accounts');
     return $this->db->affected_rows();
   }
+  public function UpdateProducts($id_products, $update_data)
+  {
+    $this->db->where('id_products',$id_products);
+    $this->db->update('products',$update_data);
+    return $this->db->affected_rows();
+  }
+
+  public function deleteProducts($id_products){
+    $this->db->where('id_products',$id_products);
+    $this->db->delete('products');
+    return $this->db->affected_rows();
+  }
+
 }

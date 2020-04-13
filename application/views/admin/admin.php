@@ -32,37 +32,62 @@
   <br>
   <input type="submit" name="" value="Adduser">
 </form>
-
+<h2>Users</h2>
+<div class="">
+    <table class="container table table-bordered table-hover table-sm">
+        <thead class="thead-light">
+            <tr>
+                <th>User Id</th> <th>Username</th><th>Firstname</th> <th>Lastname</th> <th>City</th> <th>Zip</th> <th>Address</th> <th>Phone</th> <th>Edit</th> <th>Delete</th> 
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                foreach ($allUsers as $row)
+                {
+                    echo '<tr>';
+                    echo '<td>'.$row['id_user'].'</td><td>'.$row['username'].'</td><td>'.$row['firstname'].'</td><td>'.$row['lastname'].'</td><td>'
+                        .$row['city'].'</td>'.'<td>'.$row['zip'].'</td><td>'.$row['address'].'</td><td>'.$row['phone'].'</td>';
+                    echo '<td> <button id ="editUserInfo" class="btn btn-primary myBtn" data-toggle="modal" data-target="#editModal" 
+                        data-id_user="'.$row['id_user'].'" data-username="'.$row['username'].'" data-firstname="'.$row['firstname'].'"
+                        data-lastname="'.$row['lastname'].'"data-city="'.$row['city'].'"data-zip="'.$row['zip'].'"
+                        data-address="'.$row['address'].'"data-phone="'.$row['phone'].'">Edit</button></td>';
+                        echo '<td><button type="button" id="deleteBtn" class="btn btn-danger myBtn" data-toggle="modal" data-target="#deleteModal" 
+                        data-id_user="'.$row['id_user'].'" data-username="'.$row['username'].'" data-firstname="'.$row['firstname'].'"
+                        data-lastname="'.$row['lastname'].'"data-city="'.$row['city'].'"data-zip="'.$row['zip'].'"
+                        data-address="'.$row['address'].'"data-phone="'.$row['phone'].'"> Delete </button></td>';
+                    echo '</tr>';
+                }
+            ?>
+        </tbody>
+    </table>
+</div>
+<h2>Products</h2>
 <table class="container table table-bordered table-hover table-sm">
     <thead class="thead-light">
         <tr>
-            <th>User Id</th> <th>Username</th><th>Firstname</th> <th>Lastname</th> <th>City</th> <th>Zip</th> <th>Address</th> <th>Phone</th> 
+            <th>Product id</th> <th>Name</th><th>Quantity</th> <th>Price</th> <th>Image name</th> <th>Info</th> <th>Edit</th>  <th>Delete</th>  
         </tr>
     </thead>
     <tbody>
         <?php
-            foreach ($allUsers as $row)
+            foreach ($allProducts as $row)
             {
                 echo '<tr>';
-                echo '<td>'.$row['id_user'].'</td><td>'.$row['username'].'</td><td>'.$row['firstname'].'</td><td>'.$row['lastname'].'</td><td>'
-                     .$row['city'].'</td>'.'<td>'.$row['zip'].'</td><td>'.$row['address'].'</td><td>'.$row['phone'].'</td>';
-                echo '<td> <button id ="editUserInfo" class="btn btn-primary myBtn" data-toggle="modal" data-target="#editModal" 
-                      data-id_user="'.$row['id_user'].'" data-username="'.$row['username'].'" data-firstname="'.$row['firstname'].'"
-                      data-lastname="'.$row['lastname'].'"data-city="'.$row['city'].'"data-zip="'.$row['zip'].'"
-                      data-address="'.$row['address'].'"data-phone="'.$row['phone'].'">Edit</button></td>';
-                      echo '<td><button type="button" id="deleteBtn" class="btn btn-danger myBtn" data-toggle="modal" data-target="#deleteModal" 
-                      data-id_user="'.$row['id_user'].'" data-username="'.$row['username'].'" data-firstname="'.$row['firstname'].'"
-                      data-lastname="'.$row['lastname'].'"data-city="'.$row['city'].'"data-zip="'.$row['zip'].'"
-                      data-address="'.$row['address'].'"data-phone="'.$row['phone'].'">
-                      Delete
-                    </button></td>';
+                echo '<td>'.$row['id_products'].'</td><td>'.$row['name'].'</td><td>'.$row['quantity'].'</td><td>'.$row['price'].'</td><td>'
+                     .$row['image'].'</td>'.'<td>'.$row['info'].'</td>';
+                echo '<td> <button id ="editProducts" class="btn btn-primary myBtn" data-toggle="modal" data-target="#editProductsModal" 
+                      data-id_products="'.$row['id_products'].'" data-name="'.$row['name'].'" data-quantity="'.$row['quantity'].'"
+                      data-price="'.$row['price'].'"data-image="'.$row['image'].'"data-info="'.$row['info'].'">Edit</button></td>';
+                       echo '<td><button type="button" id="deleteProductsBtn" class="btn btn-danger myBtn" data-toggle="modal" data-target="#deleteProductsModal" 
+                       data-id_products="'.$row['id_products'].'" data-name="'.$row['name'].'" data-quantity="'.$row['quantity'].'"
+                      data-price="'.$row['price'].'"data-image="'.$row['image'].'"data-info="'.$row['info'].'"> Delete </button></td>';
                 echo '</tr>';
             }
         ?>
     </tbody>
 </table>
 
-<!-- EditModal -->
+<!-- EditModal for users -->
 <div class="modal fade" id="editModal" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -100,7 +125,7 @@
         </div>
     </div>
 </div>
-<!-- deleteModal -->
+<!-- deleteModal for Users-->
 <div class="modal fade" id="deleteModal" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -121,6 +146,76 @@
                         <input type="text" id="delete_firstname" name="firstname" value="" disabled> <br>
                         <label for="delete_lastname">Lastname</label> <br>
                         <input type="text" id="delete_lastname" name="lastname" value="" disabled> <br>
+                    </div>
+                    <input type="submit" class="btn btn-danger " name="" value="Delete">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- EditModal for Products -->
+<div class="modal fade" id="editProductsModal" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Products information</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="" action="<?php echo site_url('admin/edit_products'); ?>" method="post">
+                    <div class="form-group">
+                        <input type="hidden" id="edit_id_products" name="id_products" value="">
+                        <label for="edit_name">Product name</label><br>
+                        <input type="text" id="edit_name" name="name" value=""> <br>
+                        <label for="edit_quantity">Quantity</label><br>
+                        <input type="text" id="edit_quantity" name="quantity" value=""> <br>
+                        <label for="edit_price">Price</label><br>
+                        <input type="text" id="edit_price" name="price" value=""> <br>
+                        <label for="edit_image">Image</label><br>
+                        <input type="text" id="edit_image" name="image" value=""> <br>
+                        <label for="edit_info">Info</label><br>
+                        <input type="text" id="edit_info" name="info" value=""> <br>
+                    </div>
+                    <input type="submit" class="btn btn-primary" name="" value="Update">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- deleteModal for Products-->
+<div class="modal fade" id="deleteProductsModal" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete a Product</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="" action="<?php echo site_url('admin/delete_products'); ?>" method="post">
+                    <div class="form-group">
+                        <input type="hidden" id="delete_id_products" name="id_products" value="" >
+                            Do you really want to delete this product? <br>
+                        <label for="delete_name">Name</label> <br>
+                        <input type="text" id="delete_name" name="name" value="" disabled> <br>
+                        <label for="delete_quantity">quantity</label> <br>
+                        <input type="text" id="delete_quantity" name="quantity" value="" disabled> <br>
+                        <label for="delete_price">Price</label> <br>
+                        <input type="text" id="delete_price" name="price" value="" disabled> <br>
+                        <label for="delete_image">Image name</label> <br>
+                        <input type="text" id="delete_image" name="image" value="" disabled> <br>
+                        <label for="delete_info">Selling pitch</label> <br>
+                        <input type="text" id="delete_info" name="info" value="" disabled> <br>
                     </div>
                     <input type="submit" class="btn btn-danger " name="" value="Delete">
                 </form>
@@ -179,5 +274,45 @@
         $("#delete_zip").val(zip);
         $("#delete_address").val(address);
         $("#delete_phone").val(phone);
+    });
+
+    //for editing the products
+    $(document).on( "click", '#editProducts',function(e) 
+    {
+        console.log("Update modal open");
+        var id_products = $(this).data('id_products');
+        var name = $(this).data('name');
+        var quantity = $(this).data('quantity');
+        var price = $(this).data('price');
+        var image = $(this).data('image');
+        var info = $(this).data('info');
+        console.log('id_products = '+id_products);
+
+        $("#edit_id_products").val(id_products);
+        $("#edit_name").val(name);
+        $("#edit_quantity").val(quantity);
+        $("#edit_price").val(price);
+        $("#edit_image").val(image);
+        $("#edit_info").val(info);
+    });
+
+    //for deleting the Products
+    $(document).on( "click", '#deleteProductsBtn',function(e) 
+    {
+        console.log("delete modal open");
+        var id_products = $(this).data('id_products');
+        var name = $(this).data('name');
+        var quantity = $(this).data('quantity');
+        var price = $(this).data('price');
+        var image = $(this).data('image');
+        var info = $(this).data('info');
+        console.log('id_products = '+id_products);
+
+        $("#delete_id_products").val(id_products);
+        $("#delete_name").val(name);
+        $("#delete_quantity").val(quantity);
+        $("#delete_price").val(price);
+        $("#delete_image").val(image);
+        $("#delete_info").val(info);
     });
 </script>
