@@ -32,8 +32,10 @@
   <br>
   <input type="submit" name="" value="Adduser">
 </form>
+
+
 <h2>Users</h2>
-<div class="">
+<div class="scrollable">
     <table class="container table table-bordered table-hover table-sm">
         <thead class="thead-light">
             <tr>
@@ -61,32 +63,34 @@
         </tbody>
     </table>
 </div>
-<h2>Products</h2>
-<table class="container table table-bordered table-hover table-sm">
-    <thead class="thead-light">
-        <tr>
-            <th>Product id</th> <th>Name</th><th>Quantity</th> <th>Price</th> <th>Image name</th> <th>Info</th> <th>Edit</th>  <th>Delete</th>  
-        </tr>
-    </thead>
-    <tbody>
-        <?php
-            foreach ($allProducts as $row)
-            {
-                echo '<tr>';
-                echo '<td>'.$row['id_products'].'</td><td>'.$row['name'].'</td><td>'.$row['quantity'].'</td><td>'.$row['price'].'</td><td>'
-                     .$row['image'].'</td>'.'<td>'.$row['info'].'</td>';
-                echo '<td> <button id ="editProducts" class="btn btn-primary myBtn" data-toggle="modal" data-target="#editProductsModal" 
-                      data-id_products="'.$row['id_products'].'" data-name="'.$row['name'].'" data-quantity="'.$row['quantity'].'"
-                      data-price="'.$row['price'].'"data-image="'.$row['image'].'"data-info="'.$row['info'].'">Edit</button></td>';
-                       echo '<td><button type="button" id="deleteProductsBtn" class="btn btn-danger myBtn" data-toggle="modal" data-target="#deleteProductsModal" 
-                       data-id_products="'.$row['id_products'].'" data-name="'.$row['name'].'" data-quantity="'.$row['quantity'].'"
-                      data-price="'.$row['price'].'"data-image="'.$row['image'].'"data-info="'.$row['info'].'"> Delete </button></td>';
-                echo '</tr>';
-            }
-        ?>
-    </tbody>
-</table>
-
+<h2 class="paddingTop">Products</h2>
+<div class="scrollable">
+    
+    <table class="container table table-bordered table-hover table-sm">
+        <thead class="thead-light">
+            <tr>
+                <th>Product id</th> <th>Name</th><th>Quantity</th> <th>Price</th> <th>Image name</th> <th>Info</th> <th>Edit</th>  <th>Delete</th>  
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                foreach ($allProducts as $row)
+                {
+                    echo '<tr>';
+                    echo '<td>'.$row['id_products'].'</td><td>'.$row['name'].'</td><td>'.$row['quantity'].'</td><td>'.$row['price'].'</td><td>'
+                        .$row['image'].'</td>'.'<td>'.$row['info'].'</td>';
+                    echo '<td> <button id ="editProducts" class="btn btn-primary myBtn" data-toggle="modal" data-target="#editProductsModal" 
+                        data-id_products="'.$row['id_products'].'" data-name="'.$row['name'].'" data-quantity="'.$row['quantity'].'"
+                        data-price="'.$row['price'].'"data-image="'.$row['image'].'"data-info="'.$row['info'].'">Edit</button></td>';
+                        echo '<td><button type="button" id="deleteProductsBtn" class="btn btn-danger myBtn" data-toggle="modal" data-target="#deleteProductsModal" 
+                        data-id_products="'.$row['id_products'].'" data-name="'.$row['name'].'" data-quantity="'.$row['quantity'].'"
+                        data-price="'.$row['price'].'"data-image="'.$row['image'].'"data-info="'.$row['info'].'"> Delete </button></td>';
+                    echo '</tr>';
+                }
+            ?>
+        </tbody>
+    </table>
+</div>
 <!-- EditModal for users -->
 <div class="modal fade" id="editModal" role="dialog">
     <div class="modal-dialog" role="document">
