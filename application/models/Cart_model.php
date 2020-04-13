@@ -8,11 +8,15 @@ class Cart_model extends CI_Model{
     parent::__construct();
   }
 
-  public function getProduct($item_id)
+  public function getProduct()
   {
+    foreach ($_SESSION['cart'] as $key=>$value)
+    {
+      array_push($_SESSION['ids'], $key);
+    }
     $this->db->select('*');
     $this->db->from('products');
-    $this->db->where('id_products',$item_id);
+    $this->db->where_in('id_products',$_SESSION['ids']);
     return $this->db->get()->result_array();
    }
 }

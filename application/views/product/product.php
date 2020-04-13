@@ -29,9 +29,11 @@
                 <input type="hidden" id="item_id" name="item_id" value=<?php echo $information[0]['id_products']?>>
                 <label for="quantity">Quantity:</label>
                 <input style="width:50px;" type="number" value="1" id="quantity" name="quantity" min="1">
-                <input class="btn btn-primary" type="submit" value="Purchase">
+                <input class="btn btn-primary" type="submit" value="Add to cart">
             </form>
         </div>
     </div>
   </div>
 </div>
+
+<script>

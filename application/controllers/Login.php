@@ -30,6 +30,11 @@ class Login extends CI_Controller{
           $_SESSION['logged_in']=true;
           $_SESSION['username']=$given_username;
           $_SESSION['admin']=$db_admin;
+          if(empty($_SESSION['cart']))
+          {
+            $_SESSION['cart'] = array();
+            $_SESSION['ids']= array();
+          }
           //Redirect to admin if admin or browse if user
           if($_SESSION['admin']==1){
             redirect('Admin');
@@ -55,6 +60,8 @@ class Login extends CI_Controller{
       $_SESSION['logged_in']=false;
       $_SESSION['username']="";
       $_SESSION['admin']="";
+      $_SESSION['cart']="";
+      $_SESSION['ids']="";
       $data['show_feedback']=TRUE;
       $data['message']='You successfully logged out';
       $data['page']='Login/login';
