@@ -25,7 +25,7 @@
   <input type="text" id="phone" name="phone" value=""> <br>
 
   <label for="admin">admin</label> <br>
-  <input type="radio" id="admin" name="admin" value="1"> <br>
+  <input type="checkbox" id="admin" name="admin" value="1"> <br>
 
   <label for="password">password*</label> <br>
   <input type="text" id="password" name="password" value=""> <br>
@@ -86,7 +86,7 @@
                         <input type="text" id="edit_city" name="city" value=""> <br>
                         <label for="edit_zip">Zip</label><br>
                         <input type="text" id="edit_zip" name="zip" value=""> <br>
-                        <label for="edit_address">Adderss</label><br>
+                        <label for="edit_address">Address</label><br>
                         <input type="text" id="edit_address" name="address" value=""> <br>
                         <label for="edit_phone">Phone Number</label><br>
                         <input type="text" id="edit_phone" name="phone" value=""> <br>
