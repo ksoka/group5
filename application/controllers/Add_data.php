@@ -9,15 +9,15 @@ class Add_data extends CI_Controller {
     }
 
     function add_data(){
-        $productname=$this->input->post('product');
-        $productamount=$this->input->post('amount');
+        $productname=$this->input->post('name');
+        $productamount=$this->input->post('quantity');
         $productprice=$this->input->post('price');
         $productimage=$this->input->post('image');
 
         $this->load->model('Add_data_model');
         $insert_data=array(
-            'product'=>$productname,
-            'amount'=>$productamount,
+            'name'=>$productname,
+            'quantity'=>$productamount,
             'price'=>$productprice,
             'image'=>$productimage
         );
