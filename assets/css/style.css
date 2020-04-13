@@ -170,6 +170,10 @@ body{
     text-decoration: none;
 }
 
+.adduser_form{
+    float: left;
+}
+
 .paddingTop
 {
     padding-top: 20px;
@@ -188,3 +192,4 @@ body{
 {
     min-height: 150px;
 }
+

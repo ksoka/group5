@@ -23,6 +23,14 @@ class User_model extends CI_Model{
     return $this->db->get()->row('password');
   }
 
+    // Getting the password(hash) from the database
+    public function getAdmin($given_username){
+      $this->db->select('admin');
+      $this->db->from('user_accounts');
+      $this->db->where('username',$given_username);
+      return $this->db->get()->row('admin');
+    }
+
   //Getting all the information of the logged in user
   public function getUserInfo()
   {
