@@ -173,3 +173,23 @@ body{
 .adduser_form{
     float: left;
 }
+
+.paddingTop
+{
+    padding-top: 20px;
+}
+
+.title
+{
+    font-size: 35px;
+    font-weight: bold;
+}
+.bolded
+{
+    font-weight: bold;
+}
+#productInfoBox
+{
+    min-height: 150px;
+}
+
