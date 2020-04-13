@@ -169,3 +169,7 @@ body{
     color: blue;
     text-decoration: none;
 }
+
+.adduser_form{
+    float: left;
+}

@@ -6,6 +6,7 @@ class Admin extends CI_Controller{
     public function __construct()
     {
       parent::__construct();
+      // Checking whether user is logged in and if admin is set
       if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true && $_SESSION['admin']== 1 ){
         //do nothing
       }
