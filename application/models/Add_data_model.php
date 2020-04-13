@@ -13,6 +13,12 @@ class add_data_model extends CI_Model {
         $this->db->insert('products',$insert_data);
         return $this->db->affecter_rows();
     }
+    public function getProductname($productname){
+        $this->db->select('name');
+        $this->db->from('products');
+        $this->db->where('name',$productname);
+        return $this->db->get()->row('name');
+    }
 
 }
 
