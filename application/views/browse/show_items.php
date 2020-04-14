@@ -8,3 +8,5 @@
     echo '</div>'; 
     $this->load->view('menu/footer');
 ?>
+
+<a href="<?php echo site_url('Product') ?>">to the product</a>
