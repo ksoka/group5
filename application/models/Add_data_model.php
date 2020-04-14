@@ -11,7 +11,7 @@ class add_data_model extends CI_Model {
 
     public function add_add_data($insert_data){
         $this->db->insert('products',$insert_data);
-        return $this->db->affecter_rows();
+        return $this->db->affected_rows();
     }
     public function getProductname($productname){
         $this->db->select('name');

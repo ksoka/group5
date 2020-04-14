@@ -184,7 +184,7 @@
 
 <!-- Adding data to database -->
 <h3> <u>Adding data</u></h3>
-<form class="adduser_form" action="<?php echo site_url('Add_data/add_data'); ?>" method="post" autocomplete="off">
+<form class="adduser_form" action="<?php echo site_url('Add_data/adding_data'); ?>" method="post" autocomplete="off">
     <label for="name">product name* </label> <br>
     <input type="text" id="name" name="name" value""> <br> 
 

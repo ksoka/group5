@@ -8,7 +8,7 @@ class Add_data extends CI_Controller {
         parent::__construct();
     }
 
-    function add_data(){
+    function adding_data(){
         $productname=$this->input->post('name');
         $productamount=$this->input->post('quantity');
         $productprice=$this->input->post('price');
@@ -22,18 +22,18 @@ class Add_data extends CI_Controller {
             'image'=>$productimage
         );
 
-        $testproduct=$this->add_data_model->getProductname($productname);
+        $testproduct=$this->Add_data_model->getProductname($productname);
 
-        if($testproduct == $productname){
-            $data['show_feedback']=TRUE;
-            $data['message']='This product already exists';
-            $data['page']='Admin/admin';
-            $this->load->view('admin/admin',$data);
-        }
-        else{
-            $test=$this->Add_data_model->add_add_data($insert_data);
-            $this->load->view('admin/admin',$data);
-        }
+            if($testproduct == $productname){
+                $data['show_feedback']=TRUE;
+                $data['message']='This product already exists';
+                $data['page']='Admin/admin';
+                $this->load->view('menu/content',$data);
+            }
+            else{
+                $data=$this->Add_data_model->add_add_data($insert_data);
+                $this->load->view('menu/content',$data);
+            }
         }
         
     }
