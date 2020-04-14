@@ -28,10 +28,10 @@ class Cart extends CI_Controller{
       {
       $_SESSION['cart'][$item_id]=$quantity;
       }
-      //if there is no products in shopping cart it redirects user to browse page
-      if(empty($_SESSION['cart']))
+      //if there is no products in shopping cart it redirects user to empty cart page
+      if(empty($_SESSION['cart'][$item_id]))
       {
-        redirect('Browse/browse');
+        redirect('Cart/empty');
       }
       else
       {
@@ -46,7 +46,6 @@ class Cart extends CI_Controller{
     function empty()
     {
       $_SESSION['cart']=array();
-      $_SESSION['cartQuantity']=array();
       $_SESSION['ids']=array();
       $data['page']='Cart/empty';
       $this->load->view('menu/content',$data);  
