@@ -15,16 +15,15 @@ class Admin extends CI_Controller{
       }
       $this->load->model('User_model');
       $this->load->model('Admin_model');
-      $data['allUsers']=$this->Admin_model->getAllUsersInfo();
-      $data['allProducts']=$this->Admin_model->getAllProducts();
+      //These two variables loads all the information for the users table and products table
+      $this->load->vars('allUsers', $this->Admin_model->getAllUsersInfo());
+      $this->load->vars('allProducts', $this->Admin_model->getAllProducts());
     }
     
         // Loading the login page with footer and header
         function index()
         {
           $data['page']='Admin/admin';
-          $data['allUsers']=$this->Admin_model->getAllUsersInfo();
-          $data['allProducts']=$this->Admin_model->getAllProducts();
           $this->load->view('menu/content',$data);
           
         }
@@ -102,8 +101,6 @@ class Admin extends CI_Controller{
         $data['show_feedback']=TRUE;
         $data['message']='Username already taken';
         $data['page']='Admin/admin';
-        $data['allUsers']=$this->Admin_model->getAllUsersInfo();
-        $data['allProducts']=$this->Admin_model->getAllProducts();
         $this->load->view('menu/content',$data);
       }
       else //testing if the users information got updated or not
@@ -114,8 +111,6 @@ class Admin extends CI_Controller{
           $data['show_feedback']=TRUE;
           $data['message']='Something went wrong. Please try again';
           $data['page']='admin/admin';
-          $data['allUsers']=$this->Admin_model->getAllUsersInfo();
-          $data['allProducts']=$this->Admin_model->getAllProducts();
           $this->load->view('menu/content',$data);
         }
         else
@@ -123,8 +118,6 @@ class Admin extends CI_Controller{
           $data['show_feedback']=TRUE;
           $data['message']='Information updated succesfully';
           $data['page']='admin/admin';
-          $data['allUsers']=$this->Admin_model->getAllUsersInfo();
-          $data['allProducts']=$this->Admin_model->getAllProducts();
           $this->load->view('menu/content',$data);
         }
       }
@@ -138,8 +131,6 @@ class Admin extends CI_Controller{
         $data['show_feedback']=TRUE;
         $data['message']='Something went wrong. Please try again';
         $data['page']='admin/admin';
-        $data['allUsers']=$this->Admin_model->getAllUsersInfo();
-        $data['allProducts']=$this->Admin_model->getAllProducts();
         $this->load->view('menu/content',$data);
       }
       else
@@ -147,8 +138,6 @@ class Admin extends CI_Controller{
         $data['show_feedback']=TRUE;
         $data['message']='User deleted succesfully';
         $data['page']='admin/admin';
-        $data['allUsers']=$this->Admin_model->getAllUsersInfo();
-        $data['allProducts']=$this->Admin_model->getAllProducts();
         $this->load->view('menu/content',$data);
       }
     }
@@ -171,8 +160,6 @@ class Admin extends CI_Controller{
       $data['show_feedback']=TRUE;
       $data['message']='Something went wrong. Please try again';
       $data['page']='admin/admin';
-      $data['allUsers']=$this->Admin_model->getAllUsersInfo();
-      $data['allProducts']=$this->Admin_model->getAllProducts();
       $this->load->view('menu/content',$data);
     }
     else
@@ -180,8 +167,6 @@ class Admin extends CI_Controller{
       $data['show_feedback']=TRUE;
       $data['message']='Information updated succesfully';
       $data['page']='admin/admin';
-      $data['allUsers']=$this->Admin_model->getAllUsersInfo();
-      $data['allProducts']=$this->Admin_model->getAllProducts();
       $this->load->view('menu/content',$data);
     }
   }
@@ -194,8 +179,6 @@ class Admin extends CI_Controller{
         $data['show_feedback']=TRUE;
         $data['message']='Something went wrong. Please try again';
         $data['page']='admin/admin';
-        $data['allUsers']=$this->Admin_model->getAllUsersInfo();
-        $data['allProducts']=$this->Admin_model->getAllProducts();
         $this->load->view('menu/content',$data);
       }
       else
@@ -203,8 +186,6 @@ class Admin extends CI_Controller{
         $data['show_feedback']=TRUE;
         $data['message']='Products deleted succesfully';
         $data['page']='admin/admin';
-        $data['allUsers']=$this->Admin_model->getAllUsersInfo();
-        $data['allProducts']=$this->Admin_model->getAllProducts();
         $this->load->view('menu/content',$data);
       }
     }
