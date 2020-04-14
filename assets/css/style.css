@@ -193,3 +193,9 @@ body{
     min-height: 150px;
 }
 
+.scrollable
+{
+    height: 250px;
+    overflow: scroll;
+}
+

@@ -21,7 +21,7 @@
 <body>
   
 <div class="header">
-<h1 class="TPKing">TPKing</h1>
+<a style="text-decoration: none" href="<?php echo site_url('Login'); ?>"><h1 class="TPKing">TPKing</h1> </a>
 
 
 
@@ -38,6 +38,7 @@
 else{
   echo 'Welcome Guest';
 }
+
 
 ?></h5>
 <br>
