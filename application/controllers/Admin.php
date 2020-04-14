@@ -189,5 +189,35 @@ class Admin extends CI_Controller{
         $this->load->view('menu/content',$data);
       }
     }
+
+    function adding_data(){
+        $productname=$this->input->post('name');
+        $productamount=$this->input->post('quantity');
+        $productprice=$this->input->post('price');
+        $productimage=$this->input->post('image');
+
+        $this->load->model('Add_data_model');
+        $insert_data=array(
+            'name'=>$productname,
+            'quantity'=>$productamount,
+            'price'=>$productprice,
+            'image'=>$productimage
+        );
+
+        $testproduct=$this->Add_data_model->getProductname($productname);
+
+            if($testproduct == $productname){
+                $data['show_feedback']=TRUE;
+                $data['message']='This product already exists';
+                $data['page']='Admin/admin';
+                $this->load->view('menu/content',$data);
+            }
+            else{
+                $test=$this->Add_data_model->add_add_data($insert_data);
+                //$data['page']='Admin/admin';
+                //$this->load->view('menu/content',$data);
+                redirect('Admin');
+              }
+        }
     
 }   
