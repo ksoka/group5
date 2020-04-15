@@ -218,6 +218,70 @@ class Admin extends CI_Controller{
                 //$this->load->view('menu/content',$data);
                 redirect('Admin');
               }
-        }
-    
+    }
+
+
+    function user_id_search(){
+      $user_id = $this->input->post('user_id_search');
+      $data['result'] = $this->User_model->returnOnId($user_id);
+      $data['page'] = 'Admin/admin';
+      $data['load_search'] = true;
+      $this->load->view('menu/content',$data);
+    }
+
+    function username_search(){
+      $username = $this->input->post('username_search');
+      $data['result'] = $this->User_model->returnOnUsername($username);
+      $data['page'] = 'Admin/admin';
+      $data['load_search'] = true;
+      $this->load->view('menu/content',$data);
+    }
+
+    function firstname_search(){
+      $firstname = $this->input->post('firstname_search');
+      $data['result'] = $this->User_model->returnOnFirstname($firstname);
+      $data['page'] = 'Admin/admin';
+      $data['load_search'] = true;
+      $this->load->view('menu/content',$data);
+    }
+
+    function lastname_search(){
+      $lastname = $this->input->post('lastname_search');
+      $data['result'] = $this->User_model->returnOnLastname($lastname);
+      $data['page'] = 'Admin/admin';
+      $data['load_search'] = true;
+      $this->load->view('menu/content',$data);
+    }
+
+    function city_search(){
+      $city = $this->input->post('city_search');
+      $data['result'] = $this->User_model->returnOnCity($city);
+      $data['page'] = 'Admin/admin';
+      $data['load_search'] = true;
+      $this->load->view('menu/content',$data);
+    }
+
+    function zip_search(){
+      $zip = $this->input->post('zip_search');
+      $data['result'] = $this->User_model->returnOnZip($zip);
+      $data['page'] = 'Admin/admin';
+      $data['load_search'] = true;
+      $this->load->view('menu/content',$data);
+    }
+
+    function address_search(){
+      $address = $this->input->post('address_search');
+      $data['result'] = $this->User_model->returnOnAddress($address);
+      $data['page'] = 'Admin/admin';
+      $data['load_search'] = true;
+      $this->load->view('menu/content',$data);
+    }
+
+    function phone_search(){
+      $phone = $this->input->post('phone_search');
+      $data['result'] = $this->User_model->returnOnPhone($phone);
+      $data['page'] = 'Admin/admin';
+      $data['load_search'] = true;
+      $this->load->view('menu/content',$data);
+    }
 }   
