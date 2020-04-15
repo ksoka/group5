@@ -19,7 +19,7 @@
 
 
 
-<!-- EditModal -->
+<!-- Account Modal -->
 <div class="modal fade" id="editModal" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -36,10 +36,12 @@
                         <input type="text" id="firstname" name="firstname" value=""> <br>
                         <label for="lastname">Lastname</label><br>
                         <input type="text" id="lastname" name="lastname" value=""> <br>
-                        <label for="username">Username</label><br>
-                        <input type="text" id="username" name="username" value=""> <br>
-                        <label for="password">Password</label><br>
-                        <input type="text" id="password" name="password" value=""> <br>
+                        <label for="username2">Username</label><br>
+                        <input type="text" id="username2" name="username2" value=""> <br>
+                        <label for="password2">Password</label><br>
+                        <input type="text" id="password2" name="password2" value="" onchange="password_check()"> <br>
+                        <label for="password_confirm">Password Confirmation</label><br>
+                        <input type="text" id="password_confirm" name="password_confirm" value="" onkeyup="password_check()"> <div id="warning"></div> <br>
                         <label for="city">City</label><br>
                         <input type="text" id="city" name="city" value=""> <br>
                         <label for="zip">Zip</label><br>
@@ -49,7 +51,8 @@
                         <label for="phone">Phone Number</label><br>
                         <input type="text" id="phone" name="phone" value=""> <br>
                     </div>
-                    <input type="submit" class="btn btn-primary" name="" value="Create Account">
+                    <input type="submit" id="submit_button" class="btn btn-primary" name="" value="Create Account" onmouseover="content_check()">
+                    <div id="warning2"></div>
                 </form>
             </div>
             <div class="modal-footer">
@@ -60,12 +63,14 @@
 </div>
 
 <script>
+
     $(document).on( "click", '#account_button',function(e) {
     console.log("Update modal open");
     var username = $(this).data('username');
     var firstname = $(this).data('firstname');
     var lastname = $(this).data('lastname');
     var password = $(this).data('password');
+    var password_confirm = $(this).data('password_confirm');
     var city = $(this).data('city');
     var zip = $(this).data('zip');
     var address = $(this).data('address');
@@ -75,10 +80,50 @@
     $("#firstname").val(firstname);
     $("#lastname").val(lastname);
     $("#password").val(password);
+    $("#password_confirm").val(password_confirm);
     $("#city").val(city);
     $("#zip").val(zip);
     $("#address").val(address);
     $("#phone").val(phone);
+
     });
+
+    function password_check(){
+        if(document.getElementById("password_confirm").value == document.getElementById("password2").value)
+        {
+            document.getElementById("warning").innerHTML = "";
+            document.getElementById("submit_button").disabled = false;
+            return true;
+        }
+        else{
+            document.getElementById("warning").innerHTML = "<-- Password does not match";
+            document.getElementById("submit_button").disabled = true;
+            return false;
+        }
+    }
+
+    function content_check(){
+        test = document.getElementById("firstname").value;
+        if( 
+        document.getElementById("firstname").value == '' ||
+        document.getElementById("lastname").value == '' ||
+        document.getElementById("username2").value == '' ||
+        document.getElementById("password2").value == '' ||
+        document.getElementById("password_confirm").value == '' ||
+        document.getElementById("city").value == '' ||
+        document.getElementById("zip").value == '' ||
+        document.getElementById("address").value == '' ||
+        document.getElementById("phone").value == '' 
+        ){
+            document.getElementById("warning2").innerHTML = "Please fill in all the information";
+            document.getElementById("submit_button").disabled = true;
+        }
+        else{
+            if(password_check() == true){
+                document.getElementById("warning2").innerHTML = "";
+                document.getElementById("submit_button").disabled = false;
+            }
+        }
+    }
 
 </script>

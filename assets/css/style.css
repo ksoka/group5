@@ -199,3 +199,11 @@ body{
     overflow: scroll;
 }
 
+#warning{
+    float: right;
+    color: crimson;
+}
+
+#warning2{
+    color: crimson;
+}

@@ -325,16 +325,16 @@
 <h3> <u>Adding data</u></h3>
 <form class="adduser_form" action="<?php echo site_url('Admin/adding_data'); ?>" method="post" autocomplete="off">
     <label for="name">product name* </label> <br>
-    <input type="text" id="name" name="name" value""> <br> 
+    <input type="text" id="name" name="name" value=""> <br> 
 
     <label for="quantity">product quantity* </label> <br>
-    <input type="text" id="quantity" name="quantity" value""> <br> 
+    <input type="text" id="quantity" name="quantity" value=""> <br> 
 
     <label for="price">product price (in euro)* </label> <br>
-    <input type="text" id="price" name="price" value""> <br> 
+    <input type="text" id="price" name="price" value=""> <br> 
 
     <label for="image">image filename* </label> <br>
-    <input type="text" id="image" name="image" value""> <br> 
+    <input type="text" id="image" name="image" value=""> <br> 
     <br>
     <input type="submit" name="" value="Add products">
 
