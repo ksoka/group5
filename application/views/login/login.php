@@ -39,9 +39,9 @@
                         <label for="username2">Username</label><br>
                         <input type="text" id="username2" name="username2" value=""> <br>
                         <label for="password2">Password</label><br>
-                        <input type="text" id="password2" name="password2" value="" onchange="password_check()"> <br>
+                        <input type="password" id="password2" name="password2" value="" onchange="password_check()"> <br>
                         <label for="password_confirm">Password Confirmation</label><br>
-                        <input type="text" id="password_confirm" name="password_confirm" value="" onkeyup="password_check()"> <div id="warning"></div> <br>
+                        <input type="password" id="password_confirm" name="password_confirm" value="" onkeyup="password_check()"> <div id="warning"></div> <br>
                         <label for="city">City</label><br>
                         <input type="text" id="city" name="city" value=""> <br>
                         <label for="zip">Zip</label><br>
