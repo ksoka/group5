@@ -90,6 +90,7 @@ body{
 
 #image{
     width: 350px;
+    height: 350px;
     border-radius: 5%;
 }
 
@@ -99,11 +100,17 @@ body{
 
 #content{
     display: flex;
-    border: black 1px solid;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
+#content-items{
+    border: black 1px solid;
+    border-radius: 5%;
+    margin: 5px;
+}
 
-#info{
+#items{
+    padding: 10px;
     align-self: flex-end;
 }
 
