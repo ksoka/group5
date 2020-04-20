@@ -199,3 +199,19 @@ body{
     overflow: scroll;
 }
 
+#warning{
+    float: right;
+    color: crimson;
+}
+
+#warning2{
+    color: crimson;
+}
+
+.scrollable input[type=text]{
+    width: 50px;
+}
+
+.increased_width{
+    max-width: 900px !important;
+}

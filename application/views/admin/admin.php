@@ -39,25 +39,55 @@
     <table class="container table table-bordered table-hover table-sm">
         <thead class="thead-light">
             <tr>
+                <!-- Potential searchbars -->
+                <td><form autocomplete="off" action="<?php echo site_url('Admin/user_id_search'); ?>" method="post" ><input name="user_id_search" type="text"></form></td>
+                <td><form autocomplete="off" action="<?php echo site_url('Admin/username_search'); ?>" method="post" ><input name="username_search" type="text"></form></td>
+                <td><form autocomplete="off" action="<?php echo site_url('Admin/firstname_search'); ?>" method="post" ><input name="firstname_search" type="text"></form></td>
+                <td><form autocomplete="off" action="<?php echo site_url('Admin/lastname_search'); ?>" method="post" ><input name="lastname_search" type="text"></form></td>
+                <td><form autocomplete="off" action="<?php echo site_url('Admin/city_search'); ?>" method="post" ><input name="city_search" type="text"></form></td>
+                <td><form autocomplete="off" action="<?php echo site_url('Admin/zip_search'); ?>" method="post" ><input name="zip_search" type="text"></form></td>
+                <td><form autocomplete="off" action="<?php echo site_url('Admin/address_search'); ?>" method="post" ><input name="address_search" type="text"></form></td>
+                <td><form autocomplete="off" action="<?php echo site_url('Admin/phone_search'); ?>" method="post" ><input name="phone_search" type="text"></form></td>
+            </tr>
+            <tr>
                 <th>User Id</th> <th>Username</th><th>Firstname</th> <th>Lastname</th> <th>City</th> <th>Zip</th> <th>Address</th> <th>Phone</th> <th>Edit</th> <th>Delete</th> 
             </tr>
         </thead>
         <tbody>
             <?php
-                foreach ($allUsers as $row)
-                {
-                    echo '<tr>';
-                    echo '<td>'.$row['id_user'].'</td><td>'.$row['username'].'</td><td>'.$row['firstname'].'</td><td>'.$row['lastname'].'</td><td>'
-                        .$row['city'].'</td>'.'<td>'.$row['zip'].'</td><td>'.$row['address'].'</td><td>'.$row['phone'].'</td>';
-                    echo '<td> <button id ="editUserInfo" class="btn btn-primary myBtn" data-toggle="modal" data-target="#editModal" 
-                        data-id_user="'.$row['id_user'].'" data-username="'.$row['username'].'" data-firstname="'.$row['firstname'].'"
-                        data-lastname="'.$row['lastname'].'"data-city="'.$row['city'].'"data-zip="'.$row['zip'].'"
-                        data-address="'.$row['address'].'"data-phone="'.$row['phone'].'">Edit</button></td>';
-                        echo '<td><button type="button" id="deleteBtn" class="btn btn-danger myBtn" data-toggle="modal" data-target="#deleteModal" 
-                        data-id_user="'.$row['id_user'].'" data-username="'.$row['username'].'" data-firstname="'.$row['firstname'].'"
-                        data-lastname="'.$row['lastname'].'"data-city="'.$row['city'].'"data-zip="'.$row['zip'].'"
-                        data-address="'.$row['address'].'"data-phone="'.$row['phone'].'"> Delete </button></td>';
-                    echo '</tr>';
+                if(isset($load_search) && $load_search == true){
+                    foreach ($result as $row)
+                    {
+                        echo '<tr>';
+                        echo '<td>'.$row['id_user'].'</td><td>'.$row['username'].'</td><td>'.$row['firstname'].'</td><td>'.$row['lastname'].'</td><td>'
+                            .$row['city'].'</td>'.'<td>'.$row['zip'].'</td><td>'.$row['address'].'</td><td>'.$row['phone'].'</td>';
+                        echo '<td> <button id ="editUserInfo" class="btn btn-primary myBtn" data-toggle="modal" data-target="#editModal" 
+                            data-id_user="'.$row['id_user'].'" data-username="'.$row['username'].'" data-firstname="'.$row['firstname'].'"
+                            data-lastname="'.$row['lastname'].'"data-city="'.$row['city'].'"data-zip="'.$row['zip'].'"
+                            data-address="'.$row['address'].'"data-phone="'.$row['phone'].'">Edit</button></td>';
+                            echo '<td><button type="button" id="deleteBtn" class="btn btn-danger myBtn" data-toggle="modal" data-target="#deleteModal" 
+                            data-id_user="'.$row['id_user'].'" data-username="'.$row['username'].'" data-firstname="'.$row['firstname'].'"
+                            data-lastname="'.$row['lastname'].'"data-city="'.$row['city'].'"data-zip="'.$row['zip'].'"
+                            data-address="'.$row['address'].'"data-phone="'.$row['phone'].'"> Delete </button></td>';
+                        echo '</tr>';
+                    }
+                }
+                else{
+                    foreach ($allUsers as $row)
+                    {
+                        echo '<tr>';
+                        echo '<td>'.$row['id_user'].'</td><td>'.$row['username'].'</td><td>'.$row['firstname'].'</td><td>'.$row['lastname'].'</td><td>'
+                            .$row['city'].'</td>'.'<td>'.$row['zip'].'</td><td>'.$row['address'].'</td><td>'.$row['phone'].'</td>';
+                        echo '<td> <button id ="editUserInfo" class="btn btn-primary myBtn" data-toggle="modal" data-target="#editModal" 
+                            data-id_user="'.$row['id_user'].'" data-username="'.$row['username'].'" data-firstname="'.$row['firstname'].'"
+                            data-lastname="'.$row['lastname'].'"data-city="'.$row['city'].'"data-zip="'.$row['zip'].'"
+                            data-address="'.$row['address'].'"data-phone="'.$row['phone'].'">Edit</button></td>';
+                            echo '<td><button type="button" id="deleteBtn" class="btn btn-danger myBtn" data-toggle="modal" data-target="#deleteModal" 
+                            data-id_user="'.$row['id_user'].'" data-username="'.$row['username'].'" data-firstname="'.$row['firstname'].'"
+                            data-lastname="'.$row['lastname'].'"data-city="'.$row['city'].'"data-zip="'.$row['zip'].'"
+                            data-address="'.$row['address'].'"data-phone="'.$row['phone'].'"> Delete </button></td>';
+                        echo '</tr>';
+                    }
                 }
             ?>
         </tbody>
@@ -231,7 +261,29 @@
     </div>
 </div>
 
+ <!-- Adding data to database -->
+    <h3> <u>Adding data</u></h3>
+    <form class="adduser_form" action="<?php echo site_url('Admin/adding_data'); ?>" method="post" autocomplete="off">
+        <label for="name">product name* </label> <br>
+        <input type="text" id="name" name="name" value=""> <br> 
+
+        <label for="quantity">product quantity* </label> <br>
+        <input type="text" id="quantity" name="quantity" value=""> <br> 
+
+        <label for="price">product price (in euro)* </label> <br>
+        <input type="text" id="price" name="price" value=""> <br> 
+
+        <label for="image">image filename* </label> <br>
+        <input type="text" id="image" name="image" value=""> <br> 
+        <br>
+        <input type="submit" name="" value="Add products">
+
+    </form>
+
+
 <script>
+
+
     //for editing the user
     $(document).on( "click", '#editUserInfo',function(e) 
     {
@@ -319,23 +371,8 @@
         $("#delete_image").val(image);
         $("#delete_info").val(info);
     });
+
+
 </script>
 
-<!-- Adding data to database -->
-<h3> <u>Adding data</u></h3>
-<form class="adduser_form" action="<?php echo site_url('Admin/adding_data'); ?>" method="post" autocomplete="off">
-    <label for="name">product name* </label> <br>
-    <input type="text" id="name" name="name" value""> <br> 
 
-    <label for="quantity">product quantity* </label> <br>
-    <input type="text" id="quantity" name="quantity" value""> <br> 
-
-    <label for="price">product price (in euro)* </label> <br>
-    <input type="text" id="price" name="price" value""> <br> 
-
-    <label for="image">image filename* </label> <br>
-    <input type="text" id="image" name="image" value""> <br> 
-    <br>
-    <input type="submit" name="" value="Add products">
-
-</form>

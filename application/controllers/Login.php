@@ -70,9 +70,9 @@ class Login extends CI_Controller{
 
 
     function add_user(){
-      $username=$this->input->post('username');
+      $username=$this->input->post('username2');
       $lastname=$this->input->post('lastname');
-      $plain_password=$this->input->post('password');
+      $plain_password=$this->input->post('password2');
       $hashed_password=password_hash($plain_password,PASSWORD_DEFAULT);
       $firstname=$this->input->post('firstname');
       $address=$this->input->post('address');
