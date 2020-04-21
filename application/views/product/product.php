@@ -1,3 +1,4 @@
+<h3 class="container"><a href="<?php echo site_url('Browse/browse'); ?>">Back to products </a></h3>
 <div class="container">
   <div class="row">
     <div class="col paddingTop title">
@@ -35,5 +36,3 @@
     </div>
   </div>
 </div>
-
-<script>

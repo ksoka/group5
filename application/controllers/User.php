@@ -6,11 +6,23 @@ class User extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        // Checking whether user is logged in
+        if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true)
+        {
+            //do nothing
+        }
+        else 
+        {
+            redirect('login');
+        }
         $this->load->model('User_model');
     }
-
+    
 	public function index()
 	{
+        $data['user']=$this->User_model->getUserInfo();
+        //print_r($data);
+        $data['user_products']=$this->User_model->getUserProducts();
         $data['page']='user/user';
         $this->load->view('menu/content', $data);
     }
