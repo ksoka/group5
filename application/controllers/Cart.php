@@ -73,7 +73,7 @@ class Cart extends CI_Controller{
         $price=($priceForOne*$amount);
           
         $insert_data=array(
-          'time'=>'15_46',
+          'time'=>date("d/m/Y"),
           'id_user'=>$id_user,
           'id_products'=>$id_products,
           'amount'=>$amount,

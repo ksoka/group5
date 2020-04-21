@@ -11,8 +11,9 @@ class Product extends CI_Controller {
 
 	public function index()
 	{
+        $product = htmlspecialchars($_GET["product"]);
         $data['page']='product/product';
-        $data['information']=$this->Browse_model->get_product_information(2);
+        $data['information']=$this->Browse_model->get_product_information($product);
         $this->load->view('menu/content', $data);
     }
     
