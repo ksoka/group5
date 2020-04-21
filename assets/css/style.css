@@ -215,3 +215,8 @@ body{
 .increased_width{
     max-width: 900px !important;
 }
+
+.image{
+    width: 350px;
+    border-radius: 5%;
+}

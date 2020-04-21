@@ -7,9 +7,9 @@
     </div>
   </div>
   <div class="row">
-    <div class="col">
+    <div class="col" >
         <?php
-            echo '<img class="paddingTop" src="'.base_url('assets/images/').$information[0]['image'].'"</div>'  ;
+            echo '<img class="paddingTop image" src="'.base_url('assets/images/').$information[0]['image'].'"</div>'  ;
         ?>
     </div>
     <div class="col">
