@@ -220,7 +220,7 @@ class Admin extends CI_Controller{
               }
     }
 
-
+    // Takes the searchbar(user_id) input and sends it to the modal to check for similar entries
     function user_id_search(){
       $user_id = $this->input->post('user_id_search');
       $data['result'] = $this->User_model->returnOnId($user_id);
@@ -229,6 +229,7 @@ class Admin extends CI_Controller{
       $this->load->view('menu/content',$data);
     }
 
+     // Takes the searchbar(username) input and sends it to the modal to check for similar entries
     function username_search(){
       $username = $this->input->post('username_search');
       $data['result'] = $this->User_model->returnOnUsername($username);
@@ -237,6 +238,7 @@ class Admin extends CI_Controller{
       $this->load->view('menu/content',$data);
     }
 
+     // Takes the searchbar(firstname) input and sends it to the modal to check for similar entries
     function firstname_search(){
       $firstname = $this->input->post('firstname_search');
       $data['result'] = $this->User_model->returnOnFirstname($firstname);
@@ -245,6 +247,7 @@ class Admin extends CI_Controller{
       $this->load->view('menu/content',$data);
     }
 
+     // Takes the searchbar(lastname) input and sends it to the modal to check for similar entries
     function lastname_search(){
       $lastname = $this->input->post('lastname_search');
       $data['result'] = $this->User_model->returnOnLastname($lastname);
@@ -253,6 +256,7 @@ class Admin extends CI_Controller{
       $this->load->view('menu/content',$data);
     }
 
+     // Takes the searchbar(city) input and sends it to the modal to check for similar entries
     function city_search(){
       $city = $this->input->post('city_search');
       $data['result'] = $this->User_model->returnOnCity($city);
@@ -261,6 +265,7 @@ class Admin extends CI_Controller{
       $this->load->view('menu/content',$data);
     }
 
+     // Takes the searchbar(zip) input and sends it to the modal to check for similar entries
     function zip_search(){
       $zip = $this->input->post('zip_search');
       $data['result'] = $this->User_model->returnOnZip($zip);
@@ -269,6 +274,7 @@ class Admin extends CI_Controller{
       $this->load->view('menu/content',$data);
     }
 
+     // Takes the searchbar(address) input and sends it to the modal to check for similar entries
     function address_search(){
       $address = $this->input->post('address_search');
       $data['result'] = $this->User_model->returnOnAddress($address);
@@ -277,6 +283,7 @@ class Admin extends CI_Controller{
       $this->load->view('menu/content',$data);
     }
 
+     // Takes the searchbar(phone) input and sends it to the modal to check for similar entries
     function phone_search(){
       $phone = $this->input->post('phone_search');
       $data['result'] = $this->User_model->returnOnPhone($phone);

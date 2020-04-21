@@ -89,8 +89,11 @@ body{
 }
 
 #image{
-    width: 350px;
-    border-radius: 5%;
+    width: 100%;
+    height: 350px;
+    border-radius: 5%; 
+    position: relative;
+    top: -24px;
 }
 
 #world{
@@ -99,12 +102,23 @@ body{
 
 #content{
     display: flex;
-    border: black 1px solid;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
+#content-items{
+    border: black 1px solid;
+    border-radius: 5%;
+    margin: 5px;
+    width: 350px;
+    overflow: hidden;
+    height: 422px;
+}
 
-#info{
+#items{
+    padding: 10px;
     align-self: flex-end;
+    position: relative;
+    top: -20px;
 }
 
  /* The Modal (background) */
