@@ -54,6 +54,7 @@
             </tr>
         </thead>
         <tbody>
+                <!-- Outputs the search results in the table -->
             <?php
                 if(isset($load_search) && $load_search == true){
                     foreach ($result as $row)
@@ -72,6 +73,7 @@
                         echo '</tr>';
                     }
                 }
+                // If no search result exists then all database entries will be printed
                 else{
                     foreach ($allUsers as $row)
                     {
