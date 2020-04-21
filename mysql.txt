@@ -22,7 +22,8 @@ CREATE TABLE products(
     )ENGINE=InnoDB;
 
 CREATE TABLE purchased(
-    time VARCHAR(255) PRIMARY KEY,
+    order_num INT primary key AUTO_INCREMENT,
+    time VARCHAR(255),
     id_user INT,
     id_products INT,
     amount INT NOT NULL,
