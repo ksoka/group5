@@ -16,22 +16,19 @@ class User extends CI_Controller
             redirect('login');
         }
         $this->load->model('User_model');
+        $this->load->vars('user', $this->User_model->getUserInfo());
+        $this->load->vars('user_products', $this->User_model->getUserProducts());
     }
     
 	public function index()
 	{
-        $data['user']=$this->User_model->getUserInfo();
         //print_r($data);
-        $data['user_products']=$this->User_model->getUserProducts();
         $data['page']='user/user';
         $this->load->view('menu/content', $data);
     }
 
     public function show_user()
     {
-        $data['user']=$this->User_model->getUserInfo();
-        //print_r($data);
-        $data['user_products']=$this->User_model->getUserProducts();
         $data['page']='user/user';
         $this->load->view('menu/content', $data);
     }
@@ -71,9 +68,6 @@ class User extends CI_Controller
             $data['show_feedback']=TRUE;
             $data['message']='Something went wrong';
             $data['page']='user/user';
-            $data['page']='user/user';
-            $data['user']=$this->User_model->getUserInfo();
-            $data['user_products']=$this->User_model->getUserProducts();
             $this->load->view('menu/content',$data);
 
         }
@@ -82,11 +76,7 @@ class User extends CI_Controller
             $data['show_feedback']=TRUE;
             $data['message']='Your information updated succesfully';
             $data['page']='user/user';
-            $data['user']=$this->User_model->getUserInfo();
-            $data['user_products']=$this->User_model->getUserProducts();
-            $data['page']='user/user';
             $this->load->view('menu/content',$data);
-       
         }
     }
 
