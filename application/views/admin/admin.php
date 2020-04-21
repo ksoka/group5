@@ -276,7 +276,7 @@
         <input type="text" id="price" name="price" value=""> <br> 
 
         <label for="image">image filename* </label> <br>
-        <input type="text" id="image" name="image" value=""> <br> 
+        <input type="text" id="databaseimage" name="image" value=""> <br> 
         <br>
         <input type="submit" name="" value="Add products">
 
