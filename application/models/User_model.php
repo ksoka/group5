@@ -71,4 +71,68 @@ class User_model extends CI_Model{
     return $this->db->get()->row('username');
   }
 
+  // Returns all user Data on a given id search string
+  public function returnOnId($user_id){
+    $this->db->select('id_user,firstname,lastname,city,zip,address,phone,username');
+    $this->db->from('user_accounts');
+    $this->db->like('id_user', $user_id);
+    return $this->db->get()->result_array();
+  }
+
+  // Returns all user Data on a given username search string
+  public function returnOnUsername($username){
+    $this->db->select('id_user,firstname,lastname,city,zip,address,phone,username');
+    $this->db->from('user_accounts');
+    $this->db->like('username', $username);
+    return $this->db->get()->result_array();
+  }
+
+  // Returns all user Data on a given firstname search string
+  public function returnOnFirstname($firstname){
+    $this->db->select('id_user,firstname,lastname,city,zip,address,phone,username');
+    $this->db->from('user_accounts');
+    $this->db->like('firstname', $firstname);
+    return $this->db->get()->result_array();
+  }
+
+  // Returns all user Data on a given lastname search string
+  public function returnOnLastname($lastname){
+    $this->db->select('id_user,firstname,lastname,city,zip,address,phone,username');
+    $this->db->from('user_accounts');
+    $this->db->like('lastname', $lastname);
+    return $this->db->get()->result_array();
+  }
+
+  // Returns all user Data on a given city search string
+  public function returnOnCity($city){
+    $this->db->select('id_user,firstname,lastname,city,zip,address,phone,username');
+    $this->db->from('user_accounts');
+    $this->db->like('city', $city);
+    return $this->db->get()->result_array();
+  }
+
+  // Returns all user Data on a given zip search string
+  public function returnOnZip($zip){
+    $this->db->select('id_user,firstname,lastname,city,zip,address,phone,username');
+    $this->db->from('user_accounts');
+    $this->db->like('zip', $zip);
+    return $this->db->get()->result_array();
+  }
+
+  // Returns all user Data on a given address search string
+  public function returnOnAddress($address){
+    $this->db->select('id_user,firstname,lastname,city,zip,address,phone,username');
+    $this->db->from('user_accounts');
+    $this->db->like('address', $address);
+    return $this->db->get()->result_array();
+  }
+
+  // Returns all user Data on a given phone search string
+  public function returnOnPhone($phone){
+    $this->db->select('id_user,firstname,lastname,city,zip,address,phone,username');
+    $this->db->from('user_accounts');
+    $this->db->like('phone', $phone);
+    return $this->db->get()->result_array();
+  }
+
 }

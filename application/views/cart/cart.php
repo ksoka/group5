@@ -27,7 +27,7 @@
         <a href=<?php echo site_url('browse/browse')?>>Get back to shopping</a>
     </div>
     <div class="col-sm">
-        <form action=<?php echo site_url('cart/purchase'); ?> method="post"> 
+        <form action=<?php echo site_url('cart/confirmation'); ?> method="post"> 
             <input class="btn btn-primary" type="submit" value="Continue to purchase all these wonderfull products!">
         </form>
     </div>

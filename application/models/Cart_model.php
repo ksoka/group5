@@ -12,11 +12,30 @@ class Cart_model extends CI_Model{
   {
     foreach ($_SESSION['cart'] as $key=>$value)
     {
+      if(!in_array($key, $_SESSION['ids']))
+      {
       array_push($_SESSION['ids'], $key);
+      }
     }
     $this->db->select('*');
     $this->db->from('products');
     $this->db->where_in('id_products',$_SESSION['ids']);
     return $this->db->get()->result_array();
    }
+
+  public function getUserID()
+  {
+    $this->db->select('id_user');
+    $this->db->from('user_accounts');
+    $this->db->where('username',$_SESSION['username']);
+    return $this->db->get()->row('id_user');
+  }
+
+  public function getPrice($id_products)
+  {
+    $this->db->select('price');
+    $this->db->from('products');
+    $this->db->where('id_products',$id_products);
+    return $this->db->get()->row('price');
+  }
 }
