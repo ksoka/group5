@@ -11,8 +11,19 @@ class Product extends CI_Controller {
 
 	public function index()
 	{
+        $product = htmlspecialchars($_GET["product"]);
         $data['page']='product/product';
-        $data['information']=$this->Browse_model->get_product_information(2);
+        $data['information']=$this->Browse_model->get_product_information($product);
+        $this->load->view('menu/content', $data);
+    }
+    function notlog()
+	{
+        $product=$this->input->post('item_id');
+        $data['show_feedback']=TRUE;
+        $data['message']='You must log in for placing an order<br> 
+                        <a href="'.site_url('login').'" class="btn btn-primary marginTop">log in </a>';
+        $data['page']='product/product';
+        $data['information']=$this->Browse_model->get_product_information($product);
         $this->load->view('menu/content', $data);
     }
     
