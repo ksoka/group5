@@ -37,7 +37,7 @@
     <table class="table table-striped table-bordered">
         <thead>
             <tr>
-                <th>Time</th> <th>Name</th> <th>Id_products</th> <th>Amount</th> <th>Total price</th>
+                <th>Order number</th> <th>Date</th> <th>Id_products</th> <th>Amount</th> <th>Total price</th>
             </tr>
         </thead>
         <tbody>
@@ -45,7 +45,7 @@
                 foreach ($user_products as $row)
                 {
                     echo '<tr>';
-                    echo '<td>'.$row['time'].'</td><td>'.$row['name']
+                    echo '<td>'.$row['order_num'].'</td><td>'.$row['time']
                         .'</td><td>'.$row['id_products']
                         .'</td><td>'.$row['amount'].'</td>'.'<td>'.$row['price'];
                     echo '</tr>';
