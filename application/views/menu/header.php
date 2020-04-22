@@ -37,6 +37,9 @@
 }
 else{
   echo 'Welcome Guest';
+  echo '<form class="logout_form" action="'.site_url('login').'">
+  <input type="submit" name="" value="Login">
+  </form>';
 }
 
 
