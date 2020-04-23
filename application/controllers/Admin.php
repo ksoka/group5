@@ -191,6 +191,15 @@ class Admin extends CI_Controller{
     }
 
     function adding_data(){
+
+        $config['upload_path']          = './assets/Images/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             = 2048;
+        $config['max_width']            = 0;
+        $config['max_height']           = 0;
+
+        $this->load->library('upload', $config);
+
         $productname=$this->input->post('name');
         $productamount=$this->input->post('quantity');
         $productprice=$this->input->post('price');
@@ -215,6 +224,16 @@ class Admin extends CI_Controller{
                 $this->load->view('menu/content',$data);
             }
             else{
+              
+                if ( ! $this->upload->do_upload('userfile'))
+                {
+                        $error = array('error' => $this->upload->display_errors());
+                }
+                else
+                {
+                        $data = array('upload_data' => $this->upload->data());
+                }
+      
                 $test=$this->Add_data_model->add_add_data($insert_data);
                 //$data['page']='Admin/admin';
                 //$this->load->view('menu/content',$data);

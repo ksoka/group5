@@ -265,7 +265,7 @@
 
  <!-- Adding data to database -->
     <h3> <u>Adding data</u></h3>
-    <form class="adduser_form" action="<?php echo site_url('Admin/adding_data'); ?>" method="post" autocomplete="off">
+    <form class="adduser_form" action="<?php echo site_url('Admin/adding_data'); ?>" enctype="multipart/form-data" method="post" autocomplete="off">
         <label for="name">product name* </label> <br>
         <input type="text" id="name" name="name" value=""> <br> 
 
@@ -280,12 +280,13 @@
 
         <label for="info">product info* </label> <br>
         <input type="text" id="info" name="info" value=""> <br> 
+
+        <input type="file" name="userfile" size="20" />
         <br>
         <input type="submit" name="" value="Add products">
 
     </form>
-
-
+    
 <script>
 
 
