@@ -24,7 +24,6 @@
     </table>
 </div>
 
-
 <div class="container paddingTop">
   <div class="row">
     <div class="col-sm">
@@ -56,6 +55,7 @@ for(i = 0;
         number = parseInt(number);
         output = parseFloat(output + number);
     }
+
 document.getElementById("outputSum").innerHTML = output +" €";
 
 </script>
