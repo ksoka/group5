@@ -51,7 +51,9 @@
                         <label for="phone">Phone Number</label><br>
                         <input type="text" id="phone" name="phone" value=""> <br>
                     </div>
+                    <div onmouseover="content_check()">
                     <input type="submit" id="submit_button" class="btn btn-primary" name="" value="Create Account" onmouseover="content_check()">
+                    </div>
                     <div id="warning2"></div>
                 </form>
             </div>
@@ -105,15 +107,15 @@
     function content_check(){
         test = document.getElementById("firstname").value;
         if( 
-        document.getElementById("firstname").value == '' ||
-        document.getElementById("lastname").value == '' ||
-        document.getElementById("username2").value == '' ||
-        document.getElementById("password2").value == '' ||
-        document.getElementById("password_confirm").value == '' ||
-        document.getElementById("city").value == '' ||
-        document.getElementById("zip").value == '' ||
-        document.getElementById("address").value == '' ||
-        document.getElementById("phone").value == '' 
+            document.getElementById("firstname").value == '' ||
+            document.getElementById("lastname").value == '' ||
+            document.getElementById("username2").value == '' ||
+            document.getElementById("password2").value == '' ||
+            document.getElementById("password_confirm").value == '' ||
+            document.getElementById("city").value == '' ||
+            document.getElementById("zip").value == '' ||
+            document.getElementById("address").value == '' ||
+            document.getElementById("phone").value == '' 
         ){
             document.getElementById("warning2").innerHTML = "Please fill in all the information";
             document.getElementById("submit_button").disabled = true;
