@@ -31,6 +31,7 @@
   echo 'Welcome <a class="user_link" href="'.site_url('user/show_user').'" >' .$_SESSION['username']. '</a>';
   // This is the logout form so it only appears if logged in
   echo '<!--The Logout form -->
+  <br><a href="'.site_url('Cart').'"><img class="cartIcon" src="'.base_url('assets/images/cart.png').'"></a>
   <form class="logout_form" action="'.site_url('login/logout').'" method="post">
   <input type="submit" name="" value="Logout">
   </form>';
