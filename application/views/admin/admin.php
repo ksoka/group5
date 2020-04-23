@@ -264,7 +264,8 @@
 </div>
 
  <!-- Adding data to database -->
-    <h3> <u>Adding data</u></h3>
+ <br>
+    <h3 class="clear"> <u>Adding data</u></h3>
     <form class="adduser_form" action="<?php echo site_url('Admin/adding_data'); ?>" enctype="multipart/form-data" method="post" autocomplete="off">
         <label for="name">product name* </label> <br>
         <input type="text" id="name" name="name" value=""> <br> 
