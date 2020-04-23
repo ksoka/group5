@@ -276,10 +276,7 @@
         <input type="text" id="price" name="price" value=""> <br> 
 
         <label for="image">image filename* </label> <br>
-        <input type="text" id="databaseimage" name="image" value=""> <br> 
-
-        <label for="info">product info* </label> <br>
-        <input type="text" id="info" name="info" value=""> <br> 
+        <input type="text" id="databaseimage" name="image" value=""> <br>
         <br>
         <input type="submit" name="" value="Add products">
 
