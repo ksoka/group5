@@ -10,7 +10,7 @@
   <div class="row">
     <div class="col" >
         <?php
-            echo '<img class="paddingTop image" src="'.base_url('assets/images/').$information[0]['image'].'"</div>'  ;
+            echo '<img class="marginTop image" src="'.base_url('assets/images/').$information[0]['image'].'"</div>'  ;
         ?>
     </div>
     <div class="col">
@@ -32,7 +32,7 @@
                       //if they are not logged in there will be a pop-up message
                     if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true)
                     {
-                        echo 'action="'.site_url('cart').'"';
+                        echo 'action="'.site_url('cart/add').'"';
                     }
                     else{
                         echo 'action="'.site_url('product/notlog').'"';

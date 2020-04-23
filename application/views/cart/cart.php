@@ -12,8 +12,12 @@
                 foreach ($item_info as $row)
                 {
                     echo '<tr>';
-                    echo '<td>'.$row['name'].'</td><td>'.$row['price']
-                        .'</td><td>'.$_SESSION['cart'][$row['id_products']].'</td><td id="sum">'.($row['price']*$_SESSION['cart'][$row['id_products']]).' €</td>';
+                    echo '<td>'.$row['name'].'</td><td>'.$row['price'].'</td>
+                          <td>'.$_SESSION['cart'][$row['id_products']].'</td>
+                          <td id="sum">'.($row['price']*$_SESSION['cart'][$row['id_products']]).' €</td>
+                          <td class="trashCanTD"> <form action="'.site_url('cart/delete').'">
+                          <input type="hidden" id="id_for_delete" name="id_for_delete" value="'.$row['id_products'].'"</input>
+                          <input type=image class="trashIcon" src="'.base_url('assets/images/trashCan.png').'"</input></form></td>';
                     echo '</tr>';
                 }
                 echo '<tr>';

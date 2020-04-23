@@ -9,10 +9,28 @@ class Cart extends CI_Controller{
       $this->load->model('Cart_model');
       $this->load->model('User_model');
     }
-    
     // Loading the cart page with footer and header
     //also with session token it loads the items in the shopping cart
     function index()
+    {
+      //checking if the cart is empty or not
+      if(count($_SESSION['cart']))
+      {
+        //print_r($data);
+        $item_id=$this->input->post('item_id');
+        $quantity=$this->input->post('quantity');
+        $data['item_info']=$this->Cart_model->getProduct();
+        $data['page']='Cart/cart';
+        $this->load->view('menu/content',$data); 
+      }
+       //if there is no products in shopping cart it redirects user to empty cart page
+      else
+      {
+        redirect('Cart/empty');
+      }
+    }
+
+    function add()
     {
       $item_id=$this->input->post('item_id');
       $quantity=$this->input->post('quantity');
@@ -30,20 +48,11 @@ class Cart extends CI_Controller{
       $_SESSION['cart'][$item_id]=$quantity;
       }
       $data['item_info']=$this->Cart_model->getProduct();
-      //if there is no products in shopping cart it redirects user to empty cart page
-      if(empty($_SESSION['ids'][0]))
-      {
-        redirect('Cart/empty');
-      }
-      else
-      {
-        //print_r($data);
-        $data['page']='Cart/cart';
-        $this->load->view('menu/content',$data);     
-      } 
+      $data['page']='Cart/cart';
+      $this->load->view('menu/content',$data); 
     }
-    
-    //User empties their
+
+    //User empties their cart
     //also if they try to go to cart when they don't have anything in it
     function empty()
     {
@@ -63,23 +72,26 @@ class Cart extends CI_Controller{
     //This function pushes bought items into purchased database
     function purchase()
     {
-      //loops pushes as many times as there are different products
+      //loops pushes rows into purchased as many times as there are different products
       for ($i=0; $i<count($_SESSION['ids']); $i++)
       {
-        $id_user=$this->Cart_model->getUserID();
-        $id_products=$_SESSION['ids'][$i];
-        $amount=$_SESSION['cart'][$id_products];
-        $priceForOne=$this->Cart_model->getPrice($id_products);
-        $price=($priceForOne*$amount);
-          
-        $insert_data=array(
-          'time'=>date("d/m/Y"),
-          'id_user'=>$id_user,
-          'id_products'=>$id_products,
-          'amount'=>$amount,
-          'price'=>$price,
-        );
-        $this->db->insert('purchased',$insert_data);
+        if (isset($_SESSION['ids'][$i]))
+        {
+          $id_user=$this->Cart_model->getUserID();
+          $id_products=$_SESSION['ids'][$i];
+          $amount=$_SESSION['cart'][$id_products];
+          $priceForOne=$this->Cart_model->getPrice($id_products);
+          $price=($priceForOne*$amount);
+            
+          $insert_data=array(
+            'time'=>date("d/m/Y"),
+            'id_user'=>$id_user,
+            'id_products'=>$id_products,
+            'amount'=>$amount,
+            'price'=>$price,
+          );
+          $this->db->insert('purchased',$insert_data);
+        }
       }
       //empties cart and ids when one has bought the items
       $_SESSION['cart']=array();
@@ -87,6 +99,7 @@ class Cart extends CI_Controller{
       $data['page']='Cart/purchase';
       $this->load->view('menu/content',$data);  
     }
+    
     //this function is purely for testing different arrays and their behavior
     //Can be deleted after the program is ready
     function testing()
@@ -99,4 +112,14 @@ class Cart extends CI_Controller{
       print_r($_SESSION['cart']);
     }
 
+    function delete()
+    {
+      $id_product=htmlspecialchars($_GET["id_for_delete"]);
+      if (($key = array_search($id_product, $_SESSION['ids'])) !== false) 
+      {
+        unset($_SESSION['ids'][$key]);
+      }
+      unset($_SESSION['cart'][$id_product]);
+      redirect('cart');
+    }
 }
