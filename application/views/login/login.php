@@ -11,7 +11,8 @@
   </form></br></br>
   <div class="no_account">
     Don't have an account?</br> Create one <button id="account_button" class="account_button" data-toggle="modal" data-target="#editModal">here!</button></br>
-    Or start <a color="blue" href="<?php echo site_url('Browse/browse'); ?>">browsing</a> without one.
+    Or start <a color="blue" href="<?php echo site_url('Browse/browse'); ?>">browsing</a> without one.<br><br>
+    Just remember, you must be logged in for making an order
   </div>
 </div>
 

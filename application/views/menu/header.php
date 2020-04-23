@@ -21,7 +21,7 @@
 <body>
   
 <div class="header">
-<a style="text-decoration: none" href="<?php echo site_url('Login'); ?>"><h1 class="TPKing">TPKing</h1> </a>
+<a style="text-decoration: none" href="<?php echo site_url('Browse/browse'); ?>"><h1 class="TPKing">TPKing</h1> </a>
 
 
 
@@ -37,6 +37,9 @@
 }
 else{
   echo 'Welcome Guest';
+  echo '<form class="logout_form" action="'.site_url('login').'">
+  <input type="submit" name="" value="Login">
+  </form>';
 }
 
 
