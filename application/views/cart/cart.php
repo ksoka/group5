@@ -7,19 +7,21 @@
                 <th>Product</th><th>Price</th> <th>Quantity</th> <th>Total Price</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody onload="createSum()">
             <?php
                 foreach ($item_info as $row)
                 {
                     echo '<tr>';
                     echo '<td>'.$row['name'].'</td><td>'.$row['price']
-                        .'</td><td>'.$_SESSION['cart'][$row['id_products']].'</td><td>'.($row['price']*$_SESSION['cart'][$row['id_products']]).' €</td>';
+                        .'</td><td>'.$_SESSION['cart'][$row['id_products']].'</td><td id="sum">'.($row['price']*$_SESSION['cart'][$row['id_products']]).' €</td>';
                     echo '</tr>';
                 }
             ?>
         </tbody>
     </table>
 </div>
+
+<div id="outputSum"> </div>
 
 <div class="container paddingTop">
   <div class="row">
@@ -38,3 +40,23 @@
     </div>
   </div>
 </div>
+
+<script>
+
+var container = document.querySelectorAll("#sum");
+var container_length = container.length;
+var output="";
+
+for(i = 0;
+    i < container_length;
+    i++){
+        number = container[i].innerHTML;
+        number = parseInt(number);
+        output = parseFloat(output + number);
+    }
+
+
+
+document.getElementById("outputSum").innerHTML = output;
+
+</script>
