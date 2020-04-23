@@ -238,3 +238,12 @@ body{
 {
     margin-top: 15px;
 }
+.cartIcon
+{
+    width: 50px;
+    float: left ;
+}
+.textRight
+{
+    text-align: right;
+}

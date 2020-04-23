@@ -282,6 +282,7 @@
         <input type="text" id="info" name="info" value=""> <br> 
 
         <input type="file" name="userfile" size="20" />
+
         <br>
         <input type="submit" name="" value="Add products">
 

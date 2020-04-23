@@ -16,12 +16,13 @@
                         .'</td><td>'.$_SESSION['cart'][$row['id_products']].'</td><td id="sum">'.($row['price']*$_SESSION['cart'][$row['id_products']]).' €</td>';
                     echo '</tr>';
                 }
+                echo '<tr>';
+                echo '<td></td><td></td><td class="textRight bolded">Total sum</td><td id="outputSum"></td>';
+                echo '<tr>';
             ?>
         </tbody>
     </table>
 </div>
-
-<div id="outputSum"> </div>
 
 <div class="container paddingTop">
   <div class="row">
@@ -55,8 +56,6 @@ for(i = 0;
         output = parseFloat(output + number);
     }
 
-
-
-document.getElementById("outputSum").innerHTML = output;
+document.getElementById("outputSum").innerHTML = output +" €";
 
 </script>

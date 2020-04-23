@@ -204,7 +204,6 @@ class Admin extends CI_Controller{
         $productamount=$this->input->post('quantity');
         $productprice=$this->input->post('price');
         $productimage=$this->input->post('image');
-        $productinfo=$this->input->post('info');
 
         $this->load->model('Add_data_model');
         $insert_data=array(
@@ -212,7 +211,6 @@ class Admin extends CI_Controller{
             'quantity'=>$productamount,
             'price'=>$productprice,
             'image'=>$productimage,
-            'info'=>$productinfo
         );
 
         $testproduct=$this->Add_data_model->getProductname($productname);
