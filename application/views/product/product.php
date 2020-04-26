@@ -10,7 +10,7 @@
   <div class="row">
     <div class="col" >
         <?php
-            echo '<img class="marginTop image" src="'.base_url('assets/images/').$information[0]['image'].'"</div>'  ;
+            echo '<img class="marginTop image" src="'.base_url('assets/Images/').$information[0]['image'].'"</div>'  ;
         ?>
     </div>
     <div class="col">

@@ -17,7 +17,7 @@
                           <td id="sum">'.($row['price']*$_SESSION['cart'][$row['id_products']]).' €</td>
                           <td class="trashCanTD"> <form action="'.site_url('cart/delete').'">
                           <input type="hidden" id="id_for_delete" name="id_for_delete" value="'.$row['id_products'].'"</input>
-                          <input type=image class="trashIcon" src="'.base_url('assets/images/trashCan.png').'"</input></form></td>';
+                          <input type=image class="trashIcon" src="'.base_url('assets/Images/trashCan.png').'"</input></form></td>';
                     echo '</tr>';
                 }
                 echo '<tr>';

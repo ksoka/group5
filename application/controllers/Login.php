@@ -11,7 +11,7 @@ class Login extends CI_Controller{
     // Loading the login page with footer and header
     function index()
     {
-      $data['page']='Login/login';
+      $data['page']='login/login';
       $this->load->view('menu/content',$data);
     }
     
@@ -49,7 +49,7 @@ class Login extends CI_Controller{
           $_SESSION['logged_in']=false;
           $data['show_feedback']=TRUE;
           $data['message']='Login unsuccessful!';
-          $data['page']='Login/login';
+          $data['page']='login/login';
           $this->load->view('menu/content',$data);
           //redirect('login/index');
       }
@@ -64,7 +64,7 @@ class Login extends CI_Controller{
       $_SESSION['ids']="";
       $data['show_feedback']=TRUE;
       $data['message']='You successfully logged out';
-      $data['page']='Login/login';
+      $data['page']='login/login';
       $this->load->view('menu/content',$data);
     }
 

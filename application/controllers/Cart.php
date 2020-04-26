@@ -20,7 +20,7 @@ class Cart extends CI_Controller{
         $item_id=$this->input->post('item_id');
         $quantity=$this->input->post('quantity');
         $data['item_info']=$this->Cart_model->getProduct();
-        $data['page']='Cart/cart';
+        $data['page']='cart/cart';
         $this->load->view('menu/content',$data); 
       }
        //if there is no products in shopping cart it redirects user to empty cart page
@@ -48,7 +48,7 @@ class Cart extends CI_Controller{
       $_SESSION['cart'][$item_id]=$quantity;
       }
       $data['item_info']=$this->Cart_model->getProduct();
-      $data['page']='Cart/cart';
+      $data['page']='cart/cart';
       $this->load->view('menu/content',$data); 
     }
 
@@ -58,13 +58,13 @@ class Cart extends CI_Controller{
     {
       $_SESSION['cart']=array();
       $_SESSION['ids']=array();
-      $data['page']='Cart/empty';
+      $data['page']='cart/empty';
       $this->load->view('menu/content',$data);  
     }
 
     function confirmation()
     {
-      $data['page']='Cart/confirmation';
+      $data['page']='cart/confirmation';
       $data['userInfo']=$this->User_model->getUserInfo();
       $this->load->view('menu/content',$data); 
     }
@@ -96,7 +96,7 @@ class Cart extends CI_Controller{
       //empties cart and ids when one has bought the items
       $_SESSION['cart']=array();
       $_SESSION['ids']=array();
-      $data['page']='Cart/purchase';
+      $data['page']='cart/purchase';
       $this->load->view('menu/content',$data);  
     }
     
