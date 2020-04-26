@@ -19,6 +19,7 @@ class Login extends CI_Controller{
     // If they exist the session tokens will be set
     public function login(){
       $given_username=$this->input->post('username');
+      $given_username=strtolower($given_username);
       $given_password=$this->input->post('password');
       $this->load->model('User_model');
 
