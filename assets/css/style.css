@@ -237,7 +237,7 @@ body{
 }
 .marginTop
 {
-    margin-top: 15px;
+    margin-top: 12px;
 }
 .cartIcon
 {
@@ -251,4 +251,12 @@ body{
 
 .clear{
     clear: both;
+}
+.trashIcon
+{
+    height: 20px;
+}
+.trashCanTD
+{
+    width: 30px;
 }
