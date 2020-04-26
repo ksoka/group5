@@ -32,6 +32,7 @@ class Cart extends CI_Controller{
 
     function add()
     {
+      $test;
       $item_id=$this->input->post('item_id');
       $quantity=$this->input->post('quantity');
       //if in cart there is already an entry for item_id it increases the quantity
@@ -40,6 +41,13 @@ class Cart extends CI_Controller{
         for ($i=0; $i<$quantity; $i++)
         {
         $_SESSION['cart'][$item_id]++;
+        }
+        //checking if there is over 1000 items of a product.
+        //if yes, it sets the amount to be 1000, because it's the max amoun to order
+        if($_SESSION['cart'][$item_id]>1000)
+        {
+          $_SESSION['cart'][$item_id]=1000 ;
+          $test=1;
         } 
       }
       //if in cart there is no entry for item_id, it creates it with the quantity
@@ -47,10 +55,21 @@ class Cart extends CI_Controller{
       {
       $_SESSION['cart'][$item_id]=$quantity;
       }
-      $data['item_info']=$this->Cart_model->getProduct();
-      $data['page']='cart/cart';
-      $this->load->view('menu/content',$data);
+      //if the user was trying to buy more than 1000 items
+      // a pop-up message will appear to notify them
+      if ($test==1)
+      {
+        $test=0;
+        $data['show_feedback']=TRUE;
+        $data['message']='You can order maximum 1000 units per product. Please contact our customer service if you want to place a bigger order.';
+        $data['item_info']=$this->Cart_model->getProduct();
+        $data['page']='cart/cart';
+        $this->load->view('menu/content',$data);
+      }
+      else
+      {
       redirect('Cart'); 
+      }
     }
 
     //User empties their cart
