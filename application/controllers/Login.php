@@ -72,6 +72,7 @@ class Login extends CI_Controller{
 
     function add_user(){
       $username=$this->input->post('username2');
+      $username=strtolower($username);
       $lastname=$this->input->post('lastname');
       $plain_password=$this->input->post('password2');
       $hashed_password=password_hash($plain_password,PASSWORD_DEFAULT);
@@ -110,6 +111,7 @@ class Login extends CI_Controller{
         $data['page']='login/login';
         $this->load->view('menu/content',$data);
       }
+      redirect('Login');
    }
-   redirect('Login');
+   
 }
