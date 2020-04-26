@@ -28,11 +28,11 @@
 <!--Checking the session tokens to see if logged in and who or guest -->
 <h5 class="login_user"><?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true){
   // The site_url here will lead to the userpage once available
-  echo 'Welcome <a class="user_link" href="'.site_url('user/show_user').'" >' .$_SESSION['username']. '</a>';
+  echo 'Welcome <a class="user_link" href="'.site_url('User/show_user').'" >' .$_SESSION['username']. '</a>';
   // This is the logout form so it only appears if logged in
   echo '<!--The Logout form -->
-  <br><a href="'.site_url('Cart').'"><img class="cartIcon" src="'.base_url('assets/images/cart.png').'"></a>
-  <form class="logout_form" action="'.site_url('login/logout').'" method="post">
+  <br><a href="'.site_url('Cart').'"><img class="cartIcon" src="'.base_url('assets/Images/cart.png').'"></a>
+  <form class="logout_form" action="'.site_url('Login/logout').'" method="post">
   <input type="submit" name="" value="Logout">
   </form>';
 }

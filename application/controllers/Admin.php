@@ -23,7 +23,7 @@ class Admin extends CI_Controller{
         // Loading the login page with footer and header
         function index()
         {
-          $data['page']='Admin/admin';
+          $data['page']='admin/admin';
           $this->load->view('menu/content',$data);
           
         }
@@ -69,13 +69,14 @@ class Admin extends CI_Controller{
         if($testname == $username){
           $data['show_feedback']=TRUE;
           $data['message']='Username already taken';
-          $data['page']='Admin/admin';
+          $data['page']='admin/admin';
           $this->load->view('menu/content',$data);
         }
         else{
           $test=$this->User_model->addUser($insert_data);
           redirect('Admin');
         }
+        
     }
 
     //for admin to edit the users
@@ -100,7 +101,7 @@ class Admin extends CI_Controller{
       {
         $data['show_feedback']=TRUE;
         $data['message']='Username already taken';
-        $data['page']='Admin/admin';
+        $data['page']='admin/admin';
         $this->load->view('menu/content',$data);
       }
       else //testing if the users information got updated or not
@@ -121,6 +122,7 @@ class Admin extends CI_Controller{
           $this->load->view('menu/content',$data);
         }
       }
+      redirect('Admin');
     }
 
     public function delete_user()
@@ -140,6 +142,7 @@ class Admin extends CI_Controller{
         $data['page']='admin/admin';
         $this->load->view('menu/content',$data);
       }
+      redirect('Admin');
     }
 
   //for admin to edit the products
@@ -169,6 +172,7 @@ class Admin extends CI_Controller{
       $data['page']='admin/admin';
       $this->load->view('menu/content',$data);
     }
+    redirect('Admin');
   }
 
   public function delete_products()
@@ -218,7 +222,7 @@ class Admin extends CI_Controller{
             if($testproduct == $productname){
                 $data['show_feedback']=TRUE;
                 $data['message']='This product already exists';
-                $data['page']='Admin/admin';
+                $data['page']='admin/admin';
                 $this->load->view('menu/content',$data);
             }
             else{
@@ -237,77 +241,86 @@ class Admin extends CI_Controller{
                 //$this->load->view('menu/content',$data);
                 redirect('Admin');
               }
+              redirect('Admin');
     }
 
     // Takes the searchbar(user_id) input and sends it to the modal to check for similar entries
     function user_id_search(){
       $user_id = $this->input->post('user_id_search');
       $data['result'] = $this->User_model->returnOnId($user_id);
-      $data['page'] = 'Admin/admin';
+      $data['page'] = 'admin/admin';
       $data['load_search'] = true;
       $this->load->view('menu/content',$data);
+      redirect('Admin');
     }
 
      // Takes the searchbar(username) input and sends it to the modal to check for similar entries
     function username_search(){
       $username = $this->input->post('username_search');
       $data['result'] = $this->User_model->returnOnUsername($username);
-      $data['page'] = 'Admin/admin';
+      $data['page'] = 'admin/admin';
       $data['load_search'] = true;
       $this->load->view('menu/content',$data);
+      redirect('Admin');
     }
 
      // Takes the searchbar(firstname) input and sends it to the modal to check for similar entries
     function firstname_search(){
       $firstname = $this->input->post('firstname_search');
       $data['result'] = $this->User_model->returnOnFirstname($firstname);
-      $data['page'] = 'Admin/admin';
+      $data['page'] = 'admin/admin';
       $data['load_search'] = true;
       $this->load->view('menu/content',$data);
+      redirect('Admin');
     }
 
      // Takes the searchbar(lastname) input and sends it to the modal to check for similar entries
     function lastname_search(){
       $lastname = $this->input->post('lastname_search');
       $data['result'] = $this->User_model->returnOnLastname($lastname);
-      $data['page'] = 'Admin/admin';
+      $data['page'] = 'admin/admin';
       $data['load_search'] = true;
       $this->load->view('menu/content',$data);
+      redirect('Admin');
     }
 
      // Takes the searchbar(city) input and sends it to the modal to check for similar entries
     function city_search(){
       $city = $this->input->post('city_search');
       $data['result'] = $this->User_model->returnOnCity($city);
-      $data['page'] = 'Admin/admin';
+      $data['page'] = 'admin/admin';
       $data['load_search'] = true;
       $this->load->view('menu/content',$data);
+      redirect('Admin');
     }
 
      // Takes the searchbar(zip) input and sends it to the modal to check for similar entries
     function zip_search(){
       $zip = $this->input->post('zip_search');
       $data['result'] = $this->User_model->returnOnZip($zip);
-      $data['page'] = 'Admin/admin';
+      $data['page'] = 'admin/admin';
       $data['load_search'] = true;
       $this->load->view('menu/content',$data);
+      redirect('Admin');
     }
 
      // Takes the searchbar(address) input and sends it to the modal to check for similar entries
     function address_search(){
       $address = $this->input->post('address_search');
       $data['result'] = $this->User_model->returnOnAddress($address);
-      $data['page'] = 'Admin/admin';
+      $data['page'] = 'admin/admin';
       $data['load_search'] = true;
       $this->load->view('menu/content',$data);
+      redirect('Admin');
     }
 
      // Takes the searchbar(phone) input and sends it to the modal to check for similar entries
     function phone_search(){
       $phone = $this->input->post('phone_search');
       $data['result'] = $this->User_model->returnOnPhone($phone);
-      $data['page'] = 'Admin/admin';
+      $data['page'] = 'admin/admin';
       $data['load_search'] = true;
       $this->load->view('menu/content',$data);
+      redirect('Admin');
     }
 }   
