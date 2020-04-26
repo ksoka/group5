@@ -110,6 +110,7 @@ class Login extends CI_Controller{
         $data['page']='login/login';
         $this->load->view('menu/content',$data);
       }
+	redirect('Login');
    }
-   redirect('Login');
+   
 }

@@ -49,7 +49,8 @@ class Cart extends CI_Controller{
       }
       $data['item_info']=$this->Cart_model->getProduct();
       $data['page']='cart/cart';
-      $this->load->view('menu/content',$data); 
+      $this->load->view('menu/content',$data);
+      redirect('Cart'); 
     }
 
     //User empties their cart

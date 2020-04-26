@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'admin',
-	'password' => 'admin',
-	'database' => 'TPKing',
+	'hostname' => 'mysli.oamk.fi',
+	'username' => 't9vihe00',
+	'password' => 'salasana2020',
+	'database' => 'opisk_t9vihe00',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

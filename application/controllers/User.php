@@ -31,6 +31,7 @@ class User extends CI_Controller
     {
         $data['page']='user/user';
         $this->load->view('menu/content', $data);
+        redirect('User');
     }
     public function edit_user()
     {
@@ -78,6 +79,7 @@ class User extends CI_Controller
             $data['page']='user/user';
             $this->load->view('menu/content',$data);
         }
+	redirect('User');
     }
 
 }
