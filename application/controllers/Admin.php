@@ -77,7 +77,7 @@ class Admin extends CI_Controller{
           $test=$this->User_model->addUser($insert_data);
           redirect('Admin');
         }
-        
+        redirect('Admin');
     }
 
     //for admin to edit the users
@@ -253,7 +253,6 @@ class Admin extends CI_Controller{
       $data['page'] = 'admin/admin';
       $data['load_search'] = true;
       $this->load->view('menu/content',$data);
-      redirect('Admin');
     }
 
      // Takes the searchbar(username) input and sends it to the modal to check for similar entries
@@ -263,7 +262,6 @@ class Admin extends CI_Controller{
       $data['page'] = 'admin/admin';
       $data['load_search'] = true;
       $this->load->view('menu/content',$data);
-      redirect('Admin');
     }
 
      // Takes the searchbar(firstname) input and sends it to the modal to check for similar entries
@@ -273,7 +271,6 @@ class Admin extends CI_Controller{
       $data['page'] = 'admin/admin';
       $data['load_search'] = true;
       $this->load->view('menu/content',$data);
-      redirect('Admin');
     }
 
      // Takes the searchbar(lastname) input and sends it to the modal to check for similar entries
@@ -283,7 +280,6 @@ class Admin extends CI_Controller{
       $data['page'] = 'admin/admin';
       $data['load_search'] = true;
       $this->load->view('menu/content',$data);
-      redirect('Admin');
     }
 
      // Takes the searchbar(city) input and sends it to the modal to check for similar entries
@@ -293,7 +289,6 @@ class Admin extends CI_Controller{
       $data['page'] = 'admin/admin';
       $data['load_search'] = true;
       $this->load->view('menu/content',$data);
-      redirect('Admin');
     }
 
      // Takes the searchbar(zip) input and sends it to the modal to check for similar entries
@@ -303,7 +298,6 @@ class Admin extends CI_Controller{
       $data['page'] = 'admin/admin';
       $data['load_search'] = true;
       $this->load->view('menu/content',$data);
-      redirect('Admin');
     }
 
      // Takes the searchbar(address) input and sends it to the modal to check for similar entries
@@ -313,7 +307,6 @@ class Admin extends CI_Controller{
       $data['page'] = 'admin/admin';
       $data['load_search'] = true;
       $this->load->view('menu/content',$data);
-      redirect('Admin');
     }
 
      // Takes the searchbar(phone) input and sends it to the modal to check for similar entries
@@ -323,6 +316,5 @@ class Admin extends CI_Controller{
       $data['page'] = 'admin/admin';
       $data['load_search'] = true;
       $this->load->view('menu/content',$data);
-      redirect('Admin');
     }
 }   
