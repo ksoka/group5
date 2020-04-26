@@ -66,6 +66,7 @@ class Login extends CI_Controller{
       $data['message']='You successfully logged out';
       $data['page']='login/login';
       $this->load->view('menu/content',$data);
+      redirect('Login');
     }
 
 
@@ -110,4 +111,5 @@ class Login extends CI_Controller{
         $this->load->view('menu/content',$data);
       }
    }
+   redirect('Login');
 }
