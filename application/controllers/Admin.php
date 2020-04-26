@@ -193,7 +193,7 @@ class Admin extends CI_Controller{
         $data['page']='admin/admin';
         $this->load->view('menu/content',$data);
       }
-      redirect('Admin');
+     redirect('Admin');
     }
 
     function adding_data(){
