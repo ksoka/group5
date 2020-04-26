@@ -34,6 +34,7 @@ class Admin extends CI_Controller{
         // Will be on the admin panel 
     function add_user(){
         $username=$this->input->post('username');
+        $username=strtolower($username);
         $lastname=$this->input->post('lastname');
         $plain_password=$this->input->post('password');
         $hashed_password=password_hash($plain_password,PASSWORD_DEFAULT);
