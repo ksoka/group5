@@ -34,23 +34,23 @@
                 <form class="" action="<?php echo site_url('Login/add_user'); ?>" method="post" autocomplete="off">
                     <div class="form-group">
                         <label for="firstname">Firstname</label><br>
-                        <input type="text" id="firstname" name="firstname" value=""> <br>
+                        <input type="text" id="firstname" name="firstname" value="" maxlength="20"> <br>
                         <label for="lastname">Lastname</label><br>
-                        <input type="text" id="lastname" name="lastname" value=""> <br>
+                        <input type="text" id="lastname" name="lastname" value="" maxlength="30"> <br>
                         <label for="username2">Username</label><br>
-                        <input type="text" id="username2" name="username2" value=""> <br>
+                        <input type="text" id="username2" name="username2" value="" maxlength="20"> <br>
                         <label for="password2">Password</label><br>
-                        <input type="password" id="password2" name="password2" value="" onchange="password_check()"> <br>
+                        <input type="password" id="password2" name="password2" value="" onchange="password_check()" maxlength="20"> <br>
                         <label for="password_confirm">Password Confirmation</label><br>
                         <input type="password" id="password_confirm" name="password_confirm" value="" onkeyup="password_check()"> <div id="warning"></div> <br>
                         <label for="city">City</label><br>
-                        <input type="text" id="city" name="city" value=""> <br>
+                        <input type="text" id="city" name="city" value="" maxlength="20"> <br>
                         <label for="zip">Zip</label><br>
-                        <input type="text" id="zip" name="zip" value=""> <br>
+                        <input type="text" id="zip" name="zip" value="" maxlength="5"> <br>
                         <label for="address">Address</label><br>
-                        <input type="text" id="address" name="address" value=""> <br>
+                        <input type="text" id="address" name="address" value="" maxlength="50"> <br>
                         <label for="phone">Phone Number</label><br>
-                        <input type="text" id="phone" name="phone" value=""> <br>
+                        <input type="text" id="phone" name="phone" value="" maxlength="15"> <br>
                     </div>
                     <div onmouseover="content_check()">
                     <input type="submit" id="submit_button" class="btn btn-primary" name="" value="Create Account" onmouseover="content_check()">
