@@ -46,7 +46,7 @@
                 {
                     echo '<tr>';
                     echo '<td>'.$row['order_num'].'</td><td>'.$row['time']
-                        .'</td><td>'.$row['id_products']
+                        .'</td><td>'.$row['name']
                         .'</td><td>'.$row['amount'].'</td>'.'<td>'.$row['price'];
                     echo '</tr>';
                 }
