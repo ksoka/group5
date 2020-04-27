@@ -37,7 +37,7 @@
     <table class="table table-striped table-bordered">
         <thead>
             <tr>
-                <th>Order number</th> <th>Date</th> <th>Id_products</th> <th>Amount</th> <th>Total price</th>
+                <th>Order number</th> <th>Date</th> <th>Name</th> <th>Amount</th> <th>Total price</th>
             </tr>
         </thead>
         <tbody>
