@@ -38,4 +38,12 @@ class Cart_model extends CI_Model{
     $this->db->where('id_products',$id_products);
     return $this->db->get()->row('price');
   }
+
+  public function getName($id_products)
+  {
+    $this->db->select('name');
+    $this->db->from('products');
+    $this->db->where('id_products',$id_products);
+    return $this->db->get()->row('name');
+  }
 }
