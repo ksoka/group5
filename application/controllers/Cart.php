@@ -96,6 +96,7 @@ class Cart extends CI_Controller{
           $id_user=$this->Cart_model->getUserID();
           $id_products=$_SESSION['ids'][$i];
           $amount=$_SESSION['cart'][$id_products];
+          $name=$this->Cart_model->getName($id_products);
           $priceForOne=$this->Cart_model->getPrice($id_products);
           $price=($priceForOne*$amount);
             
@@ -105,6 +106,7 @@ class Cart extends CI_Controller{
             'id_products'=>$id_products,
             'amount'=>$amount,
             'price'=>$price,
+            'name'=>$name
           );
           $this->db->insert('purchased',$insert_data);
         }
