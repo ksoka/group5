@@ -51,4 +51,8 @@ ALTER TABLE products
 ADD COLUMN info TEXT;
 
 
+ALTER TABLE purchased DROP foreign key purchased_ibfk_2; 
+ALTER TABLE purchased DROP foreign key purchased_ibfk_1; 
 
+ALTER TABLE purchased ADD foreign key (id_user) references user_accounts(id_user) on DELETE CASCADE;
+ALTER TABLE purchased ADD foreign key (id_products) references products(id_products) on DELETE CASCADE;
